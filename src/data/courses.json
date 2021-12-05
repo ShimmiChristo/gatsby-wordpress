@@ -1,0 +1,328 @@
+[
+  {
+    "course": {
+      "tribute1": {
+        "holes": [
+          {
+            "number": 1,
+            "tees": {
+              "middle": 362
+            },
+            "handicap": 13,
+            "par": 4
+          },
+          {
+            "number": 2,
+            "tees": {
+              "middle": 420
+            },
+            "handicap": 9,
+            "par": 4
+          },
+          {
+            "number": 3,
+            "tees": {
+              "middle": 410
+            },
+            "handicap": 17,
+            "par": 4
+          },
+          {
+            "number": 4,
+            "tees": {
+              "middle": 522
+            },
+            "handicap": 7,
+            "par": 5
+          },
+          {
+            "number": 5,
+            "tees": {
+              "middle": 444
+            },
+            "handicap": 5,
+            "par": 4
+          },
+          {
+            "number": 6,
+            "tees": {
+              "middle": 194
+            },
+            "handicap": 11,
+            "par": 3
+          },
+          {
+            "number": 7,
+            "tees": {
+              "middle": 556
+            },
+            "handicap": 3,
+            "par": 5
+          },
+          {
+            "number": 8,
+            "tees": {
+              "middle": 417
+            },
+            "handicap": 1,
+            "par": 4
+          },
+          {
+            "number": 9,
+            "tees": {
+              "middle": 216
+            },
+            "handicap": 15,
+            "par": 3
+          }
+        ],
+        "totals": {
+          "yardage": 3551,
+          "par": 36
+        }
+      },
+
+      "tribute2": {
+        "holes": [
+          {
+            "number": 10,
+            "tees": {
+              "middle": 357
+            },
+            "handicap": 12,
+            "par": 4
+          },
+          {
+            "number": 11,
+            "tees": {
+              "middle": 481
+            },
+            "handicap": 8,
+            "par": 5
+          },
+          {
+            "number": 12,
+            "tees": {
+              "middle": 370
+            },
+            "handicap": 6,
+            "par": 4
+          },
+          {
+            "number": 13,
+            "tees": {
+              "middle": 182
+            },
+            "handicap": 14,
+            "par": 3
+          },
+          {
+            "number": 14,
+            "tees": {
+              "middle": 375
+            },
+            "handicap": 4,
+            "par": 4
+          },
+          {
+            "number": 15,
+            "tees": {
+              "middle": 401
+            },
+            "handicap": 16,
+            "par": 4
+          },
+          {
+            "number": 16,
+            "tees": {
+              "middle": 521
+            },
+            "handicap": 2,
+            "par": 5
+          },
+          {
+            "number": 17,
+            "tees": {
+              "middle": 146
+            },
+            "handicap": 18,
+            "par": 3
+          },
+          {
+            "number": 18,
+            "tees": {
+              "middle": 349
+            },
+            "handicap": 10,
+            "par": 4
+          }
+        ],
+        "totals": {
+          "yardage": 3182,
+          "par": 36
+        }
+      },
+
+      "classic1": {
+        "holes": [
+          {
+            "number": 1,
+            "tees": {
+              "middle": 442
+            },
+            "handicap": 1,
+            "par": 5
+          },
+          {
+            "number": 2,
+            "tees": {
+              "middle": 365
+            },
+            "handicap": 11,
+            "par": 4
+          },
+          {
+            "number": 3,
+            "tees": {
+              "middle": 348
+            },
+            "handicap": 9,
+            "par": 4
+          },
+          {
+            "number": 4,
+            "tees": {
+              "middle": 395
+            },
+            "handicap": 3,
+            "par": 4
+          },
+          {
+            "number": 5,
+            "tees": {
+              "middle": 480
+            },
+            "handicap": 5,
+            "par": 5
+          },
+          {
+            "number": 6,
+            "tees": {
+              "middle": 180
+            },
+            "handicap": 13,
+            "par": 3
+          },
+          {
+            "number": 7,
+            "tees": {
+              "middle": 370
+            },
+            "handicap": 7,
+            "par": 4
+          },
+          {
+            "number": 8,
+            "tees": {
+              "middle": 104
+            },
+            "handicap": 17,
+            "par": 3
+          },
+          {
+            "number": 9,
+            "tees": {
+              "middle": 278
+            },
+            "handicap": 15,
+            "par": 4
+          }
+        ],
+        "totals": {
+          "yardage": 2962,
+          "par": 36
+        }
+      },
+      "classic2": {
+        "holes": [
+          {
+            "number": 10,
+            "tees": {
+              "middle": 469
+            },
+            "handicap": 4,
+            "par": 5
+          },
+          {
+            "number": 11,
+            "tees": {
+              "middle": 327
+            },
+            "handicap": 18,
+            "par": 3
+          },
+          {
+            "number": 12,
+            "tees": {
+              "middle": 509
+            },
+            "handicap": 8,
+            "par": 5
+          },
+          {
+            "number": 13,
+            "tees": {
+              "middle": 171
+            },
+            "handicap": 10,
+            "par": 3
+          },
+          {
+            "number": 14,
+            "tees": {
+              "middle": 393
+            },
+            "handicap": 6,
+            "par": 4
+          },
+          {
+            "number": 15,
+            "tees": {
+              "middle": 143
+            },
+            "handicap": 14,
+            "par": 3
+          },
+          {
+            "number": 16,
+            "tees": {
+              "middle": 358
+            },
+            "handicap": 2,
+            "par": 4
+          },
+          {
+            "number": 17,
+            "tees": {
+              "middle": 345
+            },
+            "handicap": 12,
+            "par": 4
+          },
+          {
+            "number": 18,
+            "tees": {
+              "middle": 364
+            },
+            "handicap": 16,
+            "par": 4
+          }
+        ],
+        "totals": {
+          "yardage": 3079,
+          "par": 36
+        }
+      }
+    }
+  }
+]

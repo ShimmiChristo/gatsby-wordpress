@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-blog-post-js",
+    "path": "/post-format-video-youtube/",
+    "result": {"data":{"post":{"id":"cG9zdDoxMTYx","excerpt":"<p>Learn more about WordPress Embeds.</p>\n","content":"<p><iframe loading=\"lazy\" title=\"Matt Mullenweg on KTEH &quot;This is Us!&quot;\" width=\"580\" height=\"326\" src=\"https://www.youtube.com/embed/SQEQr7c0-dw?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></p>\n<p>Learn more about <a title=\"WordPress Embeds\" href=\"https://codex.wordpress.org/Embeds\" target=\"_blank\" rel=\"noopener noreferrer\">WordPress Embeds</a>.</p>\n","title":"Post Format: Video (YouTube)","date":"June 02, 2010","featuredImage":null},"previous":{"uri":"/post-format-video-wordpresstv/","title":"Post Format: Video (WordPress.tv)"},"next":{"uri":"/post-format-aside/","title":"Post Format: Aside"}},"pageContext":{"id":"cG9zdDoxMTYx","previousPostId":"cG9zdDo1ODI=","nextPostId":"cG9zdDo1NTk="}},
+    "staticQueryHashes": ["1682016598","1839927123","2841359383"]}

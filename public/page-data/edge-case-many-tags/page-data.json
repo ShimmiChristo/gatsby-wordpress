@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-blog-post-js",
+    "path": "/edge-case-many-tags/",
+    "result": {"data":{"post":{"id":"cG9zdDoxMTUx","excerpt":"<p>This post has many tags.</p>\n","content":"<p>This post has many tags.</p>\n","title":"Edge Case: Many Tags","date":"June 01, 2009","featuredImage":null},"previous":{"uri":"/edge-case-many-categories/","title":"Edge Case: Many Categories"},"next":{"uri":"/edge-case-nested-and-mixed-lists/","title":"Edge Case: Nested And Mixed Lists"}},"pageContext":{"id":"cG9zdDoxMTUx","previousPostId":"cG9zdDoxMTUy","nextPostId":"cG9zdDoxMDAw"}},
+    "staticQueryHashes": ["1682016598","1839927123","2841359383"]}

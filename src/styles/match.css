@@ -1,0 +1,165 @@
+:root {
+  --green: #18453b;
+  --blue: #003c82;
+  --light-gray: #f5f5f5;
+  --gray: #a0a0a0;
+  --black: #202020;
+
+  --green-50: rgba(24, 69, 59, 0.5);
+  --blue-50: rgba(0, 60, 130, 0.5);
+}
+
+html,
+body {
+  color: var(--black);
+}
+
+.bk-gray {
+  background-color: var(--light-gray);
+}
+.team-one-color {
+  background-color: var(--green);
+}
+.team-two-color {
+  background-color: var(--blue);
+}
+.text-white {
+  color: #fff;
+}
+.text-black {
+  color: var(--black);
+}
+
+[data-winner="tie"] {
+  background-color: var(--light-gray);
+}
+[data-winner="teamOne"] {
+  background-color: var(--green);
+  background-color: var(--green-50);
+}
+[data-winner="teamTwo"] {
+  background-color: var(--blue);
+  background-color: var(--blue-50);
+  color: var(--black);
+}
+
+.match__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--light-gray);
+  flex-wrap: wrap;
+}
+
+.match__team {
+  display: flex;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+}
+.match__team > * {
+  padding: 0 0.5rem;
+}
+
+.match__course,
+.match__score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.match__column {
+  width: 3rem;
+  border-left: 1px solid var(--light-gray);
+}
+.match__column:last-child {
+  border-right: 1px solid var(--light-gray);
+}
+.match__column > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.align-left {
+  text-align: left;
+  align-content: flex-start;
+}
+.align-right {
+  text-align: right;
+  align-content: flex-end;
+}
+.match__column--info {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.match__column--info > * {
+  padding: 0 0.5rem;
+}
+.match__column--info .match__score {
+  justify-content: right;
+}
+.row-cell {
+  border-bottom: 1px solid var(--light-gray);
+  height: 2rem;
+}
+
+.match__teamScores {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: max-content; */
+}
+.match__playerScore,
+.match__teamScore {
+  display: flex;
+  justify-content: center;
+}
+.match__teamScore > * {
+  background-color: var(--light-gray);
+}
+.match__playerScore .row-cell {
+  padding: 3rem 0;
+}
+.match__number {
+  display: block;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.team__scores > * {
+  margin: 0.5rem 1rem;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+.team__scores {
+  display: flex;
+}
+
+@media screen and (max-width: 767px) {
+  .row-cell {
+    min-width: 3rem;
+  }
+  .match__column {
+    width: 3rem;
+  }
+  .match__column--info {
+    width: 100px;
+  }
+  .match__header {
+    flex-direction: column;
+  }
+  .match__course,
+  .match__score {
+    justify-content: flex-start;
+  }
+  .match__teamScores {
+    align-items: flex-start;
+  }
+  .team__scores {
+    flex-direction: column;
+  }
+}
