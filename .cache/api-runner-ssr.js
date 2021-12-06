@@ -17,7 +17,7 @@ var plugins = [{
     },{
       name: 'gatsby-plugin-google-tagmanager',
       plugin: require('/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/gatsby-plugin-google-tagmanager/gatsby-ssr'),
-      options: {"plugins":[],"defaultDataLayer":{"type":"function","value":"function () {\n          return {\n            pageType: window.pageType,\n          }\n        }"},"includeInDevelopment":false,"routeChangeEventName":"gatsby-route-change","enableWebVitalsTracking":false,"selfHostedOrigin":"https://www.googletagmanager.com"},
+      options: {"plugins":[],"defaultDataLayer":{"type":"function","value":"function () {\n          return {\n            pageType: window.pageType,\n          };\n        }"},"includeInDevelopment":false,"routeChangeEventName":"gatsby-route-change","enableWebVitalsTracking":false,"selfHostedOrigin":"https://www.googletagmanager.com"},
     },{
       name: 'gatsby-plugin-sitemap',
       plugin: require('/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),

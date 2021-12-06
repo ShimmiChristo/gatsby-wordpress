@@ -22,14 +22,14 @@ const Layout = ({ isHomePage, children }) => {
   `)
 
   return (
-    <div className="global-wrapper" data-is-root-path={isHomePage}>
+    <div className="container-fluid px-0" data-is-root-path={isHomePage}>
         {isHomePage ? (
          <Header></Header>
         ) : (
           <Header></Header>
         )}
 
-       <main className="global-wrapper">{children}</main>
+       <main className="container">{children}</main>
       <Footer></Footer>
 
     </div>

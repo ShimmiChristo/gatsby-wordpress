@@ -28,6 +28,10 @@ export const useSiteMetadata = () => {
             nav {
               name
               link
+              subNavigation {
+                name
+                link
+              }
             }
           }
         }

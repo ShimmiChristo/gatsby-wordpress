@@ -6595,7 +6595,7 @@ var plugins = [{
     "plugins": [],
     "defaultDataLayer": {
       "type": "function",
-      "value": "function () {\n          return {\n            pageType: window.pageType,\n          }\n        }"
+      "value": "function () {\n          return {\n            pageType: window.pageType,\n          };\n        }"
     },
     "includeInDevelopment": false,
     "routeChangeEventName": "gatsby-route-change",

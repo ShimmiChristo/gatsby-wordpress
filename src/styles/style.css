@@ -98,6 +98,9 @@ body {
   font-size: var(--fontSize-1);
   color: var(--color-text);
 }
+body.nav-open {
+  overflow: hidden;
+}
 
 footer {
   padding: var(--spacing-6) var(--spacing-0);

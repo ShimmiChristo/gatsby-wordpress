@@ -15,7 +15,7 @@ module.exports = [{
       options: {"plugins":[],"displayName":true,"fileName":true,"minify":true,"namespace":"","transpileTemplateLiterals":true,"topLevelImportPaths":[],"pure":false,"disableVendorPrefixes":false},
     },{
       plugin: require('../node_modules/gatsby-plugin-google-tagmanager/gatsby-browser.js'),
-      options: {"plugins":[],"defaultDataLayer":{"type":"function","value":"function () {\n          return {\n            pageType: window.pageType,\n          }\n        }"},"includeInDevelopment":false,"routeChangeEventName":"gatsby-route-change","enableWebVitalsTracking":false,"selfHostedOrigin":"https://www.googletagmanager.com"},
+      options: {"plugins":[],"defaultDataLayer":{"type":"function","value":"function () {\n          return {\n            pageType: window.pageType,\n          };\n        }"},"includeInDevelopment":false,"routeChangeEventName":"gatsby-route-change","enableWebVitalsTracking":false,"selfHostedOrigin":"https://www.googletagmanager.com"},
     },{
       plugin: require('../node_modules/gatsby-plugin-fontawesome-css/gatsby-browser.js'),
       options: {"plugins":[]},

@@ -1,16 +1,20 @@
-import React, { useState } from "react"
-import { Link } from "gatsby"
-import { useSiteMetadata } from "../hooks/use-site-metadata"
-import PropTypes from "prop-types"
-import Img from "gatsby-image"
-import styled from "styled-components"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import React, { useState } from 'react';
+import { Link } from 'gatsby';
+import { useSiteMetadata } from '../hooks/use-site-metadata';
+import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
+import {
+  faBars,
+  faTimes,
+  faAngleRight,
+} from '@fortawesome/free-solid-svg-icons';
 
 const HeaderContainer = styled.header`
   border-bottom: 1px solid #ebebeb;
-`
+`;
 const Container = styled.div`
   width: 100%;
   display: flex;
@@ -23,7 +27,7 @@ const Container = styled.div`
   @media (max-width: 767px) {
     flex-direction: column;
   }
-`
+`;
 const Nav = styled.nav`
   margin: 0 2rem;
   ul {
@@ -38,13 +42,45 @@ const Nav = styled.nav`
       padding: 0 1rem;
       margin: 0;
       width: 100%;
+      position: relative;
+      &.has-children {
+        ul {
+          position: absolute;
+          left: 0;
+          z-index: 3;
+          background-color: var(--color-brand-gray-6);
+          border: 1px var(--color-brand-gray-6) solid;
+          visibility: hidden;
+          opacity: 0;
+          transition: opacity 0.15s ease-in;
+          flex-direction: column;
+        }
+        &:hover,
+        &:focus {
+          ul {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+        li {
+        }
+      }
+      a {
+        .fa-angle-right {
+          display: none;
+        }
+        position: relative;
+        padding: 1rem 0;
+        display: block;
+      }
     }
   }
   @media (max-width: 767px) {
+    overflow: auto;
     margin: 0;
     max-width: 250px;
     min-width: 150px;
-    width: 40%;
+    width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
@@ -64,17 +100,51 @@ const Nav = styled.nav`
     ul {
       margin: 0;
       flex-direction: column;
-      padding: 2rem 1rem 1rem 1rem;
+      padding: 2rem 1rem 0;
 
       li {
+        padding: 0;
         border-bottom: 1px solid;
-        padding: 1rem 0;
         margin: 0;
         text-align: left;
+        &.has-children {
+          ul {
+            padding: 0 0 0 0.5rem;
+            display: none;
+
+            li {
+              &:last-child {
+                border-bottom: none;
+              }
+              a {
+                padding: 0.5rem 0;
+              }
+            }
+          }
+          a {
+            .fa-angle-right {
+              transition: transform 0.2s ease-in-out;
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%) rotate(0deg);
+            }
+          }
+        }
+        &.active {
+          ul {
+            display: block;
+          }
+          a {
+            .fa-angle-right {
+              transform: translateY(-50%) rotate(90deg);
+            }
+          }
+        }
       }
     }
   }
-`
+`;
 const NavBtn = styled.span`
   display: none;
   @media (max-width: 767px) {
@@ -91,7 +161,7 @@ const NavBtn = styled.span`
       cursor: hand;
     }
   }
-`
+`;
 const CloseBtn = styled.span`
   display: none;
   @media (max-width: 767px) {
@@ -99,13 +169,14 @@ const CloseBtn = styled.span`
     position: absolute;
     top: 0.5rem;
     right: 1rem;
+    z-index: 3;
 
     &:hover {
       cursor: pointer;
       cursor: hand;
     }
   }
-`
+`;
 const Background = styled.div`
   display: none;
   @media (max-width: 767px) {
@@ -128,55 +199,90 @@ const Background = styled.div`
       display: block;
     }
   }
-`
+`;
 
 function HeaderV2() {
-  const { title, nav, logo } = useSiteMetadata()
-  const [menuActive, setMenuActive] = useState(false)
+  const { title, nav, logo } = useSiteMetadata();
+  const [menuActive, setMenuActive] = useState(false);
+  const [subMenuActive, setSubMenuActive] = useState(false);
 
-  let logoImg
+  let logoImg;
 
   if (logo) {
-    logoImg = <Img fixed={logo.childImageSharp.fixed} />
+    logoImg = <Img fixed={logo.childImageSharp.fixed} />;
   } else {
-    logoImg = <Link>{title}</Link>
+    logoImg = <Link>{title}</Link>;
   }
 
-  function navClick() {
-    menuActive ? setMenuActive(false) : setMenuActive(true)
+  function navClick(e) {
+    e.preventDefault();
+    const bodyTag = document.body.classList;
+    if (menuActive) {
+      setMenuActive(false);
+      bodyTag.remove('nav-open');
+    } else {
+      bodyTag.add('nav-open');
+      setMenuActive(true);
+    }
+    return;
+  }
+  function handleSubNavClick() {
+    subMenuActive ? setSubMenuActive(false) : setSubMenuActive(true);
   }
 
   return (
     <HeaderContainer>
-      <Background className={`${menuActive ? "active" : ""}`}></Background>
+      <Background className={`${menuActive ? 'active' : ''}`}></Background>
       <Container>
         <span class="h2">{logoImg}</span>
         <NavBtn id="navMenu--btn" onClick={navClick}>
           <FontAwesomeIcon icon={faBars} size="2x" />
         </NavBtn>
-        <Nav id="navMenu" className={`${menuActive ? "active" : ""}`}>
+        <Nav id="navMenu" className={`${menuActive ? 'active' : ''}`}>
           <CloseBtn id="navMenu--close" onClick={navClick}>
             <FontAwesomeIcon icon={faTimes} size="2x" />
           </CloseBtn>
           <ul>
-            {nav.map(navMenu => (
-              <li key={navMenu.name}>
-                <Link to={navMenu.link}>{navMenu.name}</Link>
-              </li>
-            ))}
+            {nav.map((navMenu) =>
+              navMenu.link === '#' ? (
+                <li
+                  key={navMenu.name}
+                  className={`nav-item has-children ${
+                    subMenuActive ? 'active' : ''
+                  }`}
+                  onClick={handleSubNavClick}
+                >
+                  <Link to={navMenu.link}>
+                    {navMenu.name}
+                    <FontAwesomeIcon icon={faAngleRight} size="2x" />
+                  </Link>
+                  <ul class="sub-menu">
+                    {navMenu.subNavigation.map((subNavMenu) => (
+                      <li key={subNavMenu.name} onClick={navClick}>
+                        <Link to={subNavMenu.link}>{subNavMenu.name}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <li key={navMenu.name} onClick={navClick}>
+                  <Link to={navMenu.link}>{navMenu.name}</Link>
+                </li>
+              )
+            )}
           </ul>
         </Nav>
       </Container>
     </HeaderContainer>
-  )
+  );
 }
 
 HeaderV2.propTypes = {
   title: PropTypes.string,
-}
+};
 
 HeaderV2.defaultProps = {
   title: ``,
-}
+};
 
-export default HeaderV2
+export default HeaderV2;

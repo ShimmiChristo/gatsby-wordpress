@@ -1,6 +1,6 @@
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 module.exports = {
   siteMetadata: {
@@ -17,21 +17,35 @@ module.exports = {
       phone: `646-580-5599`,
     },
     social: {
-      twitter: "shimmiChristo",
-      instagram: "shimmiChristo",
+      twitter: 'shimmiChristo',
+      instagram: 'shimmiChristo',
       youtube: `shimdoggy`,
       facebook: ``,
       github: `shimmiChristo`,
-      google: ``
+      google: ``,
     },
     nav: [
       {
-        name: "Home",
-        link: "/",
+        name: 'Home',
+        link: '/',
       },
       {
-        name: "Blog",
-        link: "/blog",
+        name: 'Blog',
+        link: '/blog',
+      },
+      {
+        name: 'Topics',
+        link: '#',
+        subNavigation: [
+          {
+            name: 'Latest',
+            link: '/latest',
+          },
+          {
+            name: 'Trending',
+            link: '/trending',
+          },
+        ],
       },
     ],
   },
@@ -153,10 +167,10 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         root: __dirname,
-        extensions: [".md", ".mdx"],
+        extensions: ['.md', '.mdx'],
         gatsbyRemarkPlugins: [
           {
-            resolve: "gatsby-remark-images",
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 800,
               quality: 70,
@@ -172,7 +186,7 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         // datalayer to be set before GTM is loaded
         // should be a stringified object or object
@@ -181,7 +195,7 @@ module.exports = {
         defaultDataLayer: function () {
           return {
             pageType: window.pageType,
-          }
+          };
         },
       },
     },
@@ -210,10 +224,8 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         // the only required plugin option for WordPress is the GraphQL url.
-        url:
-          process.env.WPGRAPHQL_URL,
+        url: process.env.WPGRAPHQL_URL,
       },
     },
-
   ],
-}
+};
