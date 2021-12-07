@@ -8217,16 +8217,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const FooterContainer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].footer.withConfig({
   displayName: "footer__FooterContainer"
-})(["background-color:var(--color-brand-gray-6);padding:1rem 0 1rem;"]);
-const FooterColumns = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
-  displayName: "footer__FooterColumns"
-})(["display:flex;justify-content:space-evenly;padding:2rem 0 1rem;@media (max-width:767px){flex-direction:column;padding:0 0 2rem;}"]);
-const FooterColumn = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
-  displayName: "footer__FooterColumn"
-})(["display:flex;flex-direction:column;max-width:300px;@media (max-width:767px){max-width:100%;padding:0 2rem;margin-bottom:0;flex-direction:row;flex-wrap:wrap;& h4{flex:0 0 100%;}}& li{list-style:none;padding:0 0.2rem;}"]);
-const FooterCopy = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
-  displayName: "footer__FooterCopy"
-})(["text-align:center;"]);
+})(["background-color:var(--color-brand-gray-6);margin-top:2rem;li{list-style:none;padding-bottom:0.25rem;}"]);
 
 function Footer() {
   const {
@@ -8234,15 +8225,23 @@ function Footer() {
     social,
     author
   } = (0,_hooks_use_site_metadata__WEBPACK_IMPORTED_MODULE_2__.useSiteMetadata)();
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(FooterContainer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(FooterColumns, {
-    className: "footer__columns"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(FooterColumn, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(FooterContainer, {
+    className: ""
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "col-md-6 my-3 text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", {
     className: "footer__title"
   }, "Links"), nav.map(column => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
     className: "footer__item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: column.link
-  }, column.name)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(FooterColumn, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", {
+  }, column.name)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "col-md-6 my-3 text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", {
     className: "footer__title"
   }, "Follow"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
     className: "footer__item"
@@ -8256,13 +8255,17 @@ function Footer() {
     className: "footer__item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: `https://youtube.com/${(social === null || social === void 0 ? void 0 : social.youtube) || ``}`
-  }, " ", "Youtube")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+  }, ' ', "Youtube")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
     className: "footer__item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: `https://github.com/${(social === null || social === void 0 ? void 0 : social.github) || ``}`
-  }, " Github")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(FooterCopy, null, "\xA9 ", new Date().getFullYear(), ` `, ` Created by `, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
+  }, " Github")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "col text-center"
+  }, "\xA9 ", new Date().getFullYear(), ` `, ` Created by `, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: author.website
-  }, author.name)));
+  }, author.name)))));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Footer);
@@ -8444,10 +8447,10 @@ const Layout = ({
     }
   } = _public_page_data_sq_d_1682016598_json__WEBPACK_IMPORTED_MODULE_0__.data;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
-    className: "global-wrapper",
+    className: "container-fluid px-0",
     "data-is-root-path": isHomePage
   }, isHomePage ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_header_v2__WEBPACK_IMPORTED_MODULE_2__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_header_v2__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("main", {
-    className: "global-wrapper"
+    className: "container"
   }, children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_footer__WEBPACK_IMPORTED_MODULE_3__["default"], null));
 }; // const Layout = ({ location, title, children }) => {
 //   const rootPath = `${__PATH_PREFIX__}/`

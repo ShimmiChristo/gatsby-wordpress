@@ -13,7 +13,26 @@ const FooterContainer = styled.footer`
     padding-bottom: 0.25rem;
   }
 `;
+const FooterColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
+  @media (max-width: 767px) {
+    padding: 0 2rem;
+    margin-bottom: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+
+    & h4 {
+      flex: 0 0 100%;
+    }
+  }
+  
+`;
 
 function Footer() {
   const { nav, social, author } = useSiteMetadata();
@@ -22,36 +41,36 @@ function Footer() {
     <FooterContainer className="">
       <div className="container">
         <div className="row">
-          <div className="col-md-6 my-3 text-center">
-            <h4 className="footer__title">Links</h4>
+          <FooterColumn className="col-md-6 my-3">
+            <h4>Links</h4>
             {nav.map((column) => (
-              <li className="footer__item">
+              <li className="px-3">
                 <Link to={column.link}>{column.name}</Link>
               </li>
             ))}
-          </div>
-          <div className="col-md-6 my-3 text-center">
-            <h4 className="footer__title">Follow</h4>
-            <li className="footer__item">
+          </FooterColumn>
+          <FooterColumn className="col-md-6 my-3">
+            <h4>Follow</h4>
+            <li className="px-3">
               <a href={`https://twitter.com/${social?.twitter || ``}`}>
                 Twitter
               </a>
             </li>
-            <li className="footer__item">
+            <li className="px-3">
               <a href={`https://instagram.com/${social?.instagram || ``}`}>
                 Instagram
               </a>
             </li>
-            <li className="footer__item">
+            <li className="px-3">
               <a href={`https://youtube.com/${social?.youtube || ``}`}>
                 {' '}
                 Youtube
               </a>
             </li>
-            <li className="footer__item">
+            <li className="px-3">
               <a href={`https://github.com/${social?.github || ``}`}> Github</a>
             </li>
-          </div>
+          </FooterColumn>
         </div>
         <div className="row">
           <div className="col text-center">

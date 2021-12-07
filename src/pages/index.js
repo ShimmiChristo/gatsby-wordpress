@@ -5,6 +5,7 @@ import AboutSite from "../components/about-site"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import AboutMe from "../components/about-me"
+import LatestPosts from "../components/latest-posts"
 
 const Homepage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -20,6 +21,7 @@ const Homepage = ({ data, location }) => {
           </ul>
         </div>
       <AboutMe />
+      <LatestPosts />
     </Layout>
   )
 }
