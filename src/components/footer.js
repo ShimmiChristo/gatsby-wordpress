@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { useSiteMetadata } from '../hooks/use-site-metadata';
+import { UseSiteMetadata } from '../hooks/use-site-metadata';
 // import PropTypes from "prop-types"
 import styled from 'styled-components';
 
@@ -35,7 +35,7 @@ const FooterColumn = styled.div`
 `;
 
 function Footer() {
-  const { nav, social, author } = useSiteMetadata();
+  const { nav, social, author } = UseSiteMetadata();
 
   return (
     <FooterContainer className="">

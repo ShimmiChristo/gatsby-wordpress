@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
-import { useSiteMetadata } from '../hooks/use-site-metadata';
+import { UseSiteMetadata } from '../hooks/use-site-metadata';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
@@ -202,7 +202,7 @@ const Background = styled.div`
 `;
 
 function HeaderV2() {
-  const { title, nav, logo } = useSiteMetadata();
+  const { title, nav, logo } = UseSiteMetadata();
   const [menuActive, setMenuActive] = useState(false);
   const [subMenuActive, setSubMenuActive] = useState(false);
 

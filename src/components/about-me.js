@@ -1,5 +1,5 @@
 import React from "react"
-import { useSiteMetadata } from "../hooks/use-site-metadata"
+import { UseSiteMetadata } from "../hooks/use-site-metadata"
 import { useProfilePic } from "../hooks/use-profile-pic"
 // import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
@@ -38,7 +38,7 @@ const ProfilePic = styled(Image)`
 `
 
 function AboutMe() {
-  const { author } = useSiteMetadata()
+  const { author } = UseSiteMetadata()
   const { fluid } = useProfilePic()
 
   return (

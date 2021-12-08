@@ -8348,45 +8348,44 @@ __webpack_require__.r(__webpack_exports__);
 const FooterContainer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].footer.withConfig({
   displayName: "footer__FooterContainer"
 })(["background-color:var(--color-brand-gray-6);margin-top:2rem;li{list-style:none;padding-bottom:0.25rem;}"]);
+const FooterColumn = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
+  displayName: "footer__FooterColumn"
+})(["display:flex;flex-direction:column;justify-content:flex-start;align-items:center;@media (max-width:767px){padding:0 2rem;margin-bottom:0;flex-direction:row;flex-wrap:wrap;text-align:center;justify-content:center;& h4{flex:0 0 100%;}}"]);
 
 function Footer() {
   const {
     nav,
     social,
     author
-  } = (0,_hooks_use_site_metadata__WEBPACK_IMPORTED_MODULE_2__.useSiteMetadata)();
+  } = (0,_hooks_use_site_metadata__WEBPACK_IMPORTED_MODULE_2__.UseSiteMetadata)();
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(FooterContainer, {
     className: ""
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "col-md-6 my-3 text-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", {
-    className: "footer__title"
-  }, "Links"), nav.map(column => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
-    className: "footer__item"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(FooterColumn, {
+    className: "col-md-6 my-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Links"), nav.map(column => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    className: "px-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: column.link
-  }, column.name)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "col-md-6 my-3 text-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", {
-    className: "footer__title"
-  }, "Follow"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
-    className: "footer__item"
+  }, column.name)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(FooterColumn, {
+    className: "col-md-6 my-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Follow"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    className: "px-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: `https://twitter.com/${(social === null || social === void 0 ? void 0 : social.twitter) || ``}`
   }, "Twitter")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
-    className: "footer__item"
+    className: "px-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: `https://instagram.com/${(social === null || social === void 0 ? void 0 : social.instagram) || ``}`
   }, "Instagram")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
-    className: "footer__item"
+    className: "px-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: `https://youtube.com/${(social === null || social === void 0 ? void 0 : social.youtube) || ``}`
   }, ' ', "Youtube")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
-    className: "footer__item"
+    className: "px-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: `https://github.com/${(social === null || social === void 0 ? void 0 : social.github) || ``}`
   }, " Github")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -8454,7 +8453,7 @@ function HeaderV2() {
     title,
     nav,
     logo
-  } = (0,_hooks_use_site_metadata__WEBPACK_IMPORTED_MODULE_2__.useSiteMetadata)();
+  } = (0,_hooks_use_site_metadata__WEBPACK_IMPORTED_MODULE_2__.UseSiteMetadata)();
   const {
     0: menuActive,
     1: setMenuActive
@@ -8741,11 +8740,11 @@ const usePublishedPosts = () => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "useSiteMetadata": () => (/* binding */ useSiteMetadata)
+/* harmony export */   "UseSiteMetadata": () => (/* binding */ UseSiteMetadata)
 /* harmony export */ });
 /* harmony import */ var _public_page_data_sq_d_3215011712_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../public/page-data/sq/d/3215011712.json */ "./public/page-data/sq/d/3215011712.json");
 
-const useSiteMetadata = () => {
+const UseSiteMetadata = () => {
   const {
     site
   } = _public_page_data_sq_d_3215011712_json__WEBPACK_IMPORTED_MODULE_0__.data;
@@ -8790,7 +8789,7 @@ const BlogIndex = ({
     title,
     description,
     headline
-  } = (0,_hooks_use_site_metadata__WEBPACK_IMPORTED_MODULE_1__.useSiteMetadata)();
+  } = (0,_hooks_use_site_metadata__WEBPACK_IMPORTED_MODULE_1__.UseSiteMetadata)();
   const {
     nodes
   } = (0,_hooks_use_published_posts__WEBPACK_IMPORTED_MODULE_2__.usePublishedPosts)();
@@ -8872,7 +8871,7 @@ module.exports = JSON.parse('{"data":{"site":{"siteMetadata":{"title":"Gatsby St
   \***********************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"data":{"allMdx":{"nodes":[{"id":"023a2b28-969d-5f27-beb0-1ecb2cb62639","excerpt":"Far far away, behind the word mountains, far from the countries Vokalia and\\nConsonantia, there live the blind texts. Separated they live in…","slug":"new-beginnings/","frontmatter":{"date":"May 04, 2019","title":"New Beginnings","description":"This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.","featuredImg":{"childImageSharp":{"fluid":{"base64":"data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAwUC/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHVM+S8UIo5aiaSNEr/xAAbEAACAwEBAQAAAAAAAAAAAAABAgADERITIv/aAAgBAQABBQJN5Xdb06S/CLsDv9GvsmjIRhNatPNJgn//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQMBAT8BcZv/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAECAQE/AcjIf//EAB4QAAIBBAMBAAAAAAAAAAAAAAABERIiMZEhQXGB/9oACAEBAAY/Aro+DktSgpYzrY5a2TUoLVK8OTBg/8QAHhABAAMAAgIDAAAAAAAAAAAAAQARIUFRMWFxgfH/2gAIAQEAAT8h7wxdTKvNmz7Bnr7moycHiWNrXpF0NfGJfwjthPa23DVhX5n71gBQZ//aAAwDAQACAAMAAAAQk/cA/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERIRD/2gAIAQMBAT8QhZxJNRZ//8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERECH/2gAIAQIBAT8Qjx04yT//xAAeEAEAAgIDAQEBAAAAAAAAAAABABEhQTFRYcGBof/aAAgBAQABPxCxWsuVZF5RIcfIc96UjMo3koXN8fkaIivG965IgaCuxvsUzGriIFoVvMQOekVr+QzRKFJnqdR8b6ihm56vsx4Tsn//2Q==","aspectRatio":0.665680473372781,"src":"/static/6b2552472d778b2928cb9dbb72da0d79/16f14/hero-img.jpg","srcSet":"/static/6b2552472d778b2928cb9dbb72da0d79/07ab6/hero-img.jpg 225w,\\n/static/6b2552472d778b2928cb9dbb72da0d79/32fd5/hero-img.jpg 450w,\\n/static/6b2552472d778b2928cb9dbb72da0d79/16f14/hero-img.jpg 504w","sizes":"(max-width: 504px) 100vw, 504px"}}}}},{"id":"0ce0e0a6-60f6-57bb-9471-b2758d8e155e","excerpt":"Wow! I love blogging so much already. Did you know that \\"despite its name, salted duck eggs can also be made from\\nchicken eggs, though the…","slug":"my-second-post/","frontmatter":{"date":"May 04, 2019","title":"My Second Post!","description":"my second post description","featuredImg":{"childImageSharp":{"fluid":{"base64":"data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAwUC/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHVM+S8UIo5aiaSNEr/xAAbEAACAwEBAQAAAAAAAAAAAAABAgADERITIv/aAAgBAQABBQJN5Xdb06S/CLsDv9GvsmjIRhNatPNJgn//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQMBAT8BcZv/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAECAQE/AcjIf//EAB4QAAIBBAMBAAAAAAAAAAAAAAABERIiMZEhQXGB/9oACAEBAAY/Aro+DktSgpYzrY5a2TUoLVK8OTBg/8QAHhABAAMAAgIDAAAAAAAAAAAAAQARIUFRMWFxgfH/2gAIAQEAAT8h7wxdTKvNmz7Bnr7moycHiWNrXpF0NfGJfwjthPa23DVhX5n71gBQZ//aAAwDAQACAAMAAAAQk/cA/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERIRD/2gAIAQMBAT8QhZxJNRZ//8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERECH/2gAIAQIBAT8Qjx04yT//xAAeEAEAAgIDAQEBAAAAAAAAAAABABEhQTFRYcGBof/aAAgBAQABPxCxWsuVZF5RIcfIc96UjMo3koXN8fkaIivG965IgaCuxvsUzGriIFoVvMQOekVr+QzRKFJnqdR8b6ihm56vsx4Tsn//2Q==","aspectRatio":0.665680473372781,"src":"/static/6b2552472d778b2928cb9dbb72da0d79/16f14/hero-img.jpg","srcSet":"/static/6b2552472d778b2928cb9dbb72da0d79/07ab6/hero-img.jpg 225w,\\n/static/6b2552472d778b2928cb9dbb72da0d79/32fd5/hero-img.jpg 450w,\\n/static/6b2552472d778b2928cb9dbb72da0d79/16f14/hero-img.jpg 504w","sizes":"(max-width: 504px) 100vw, 504px"}}}}},{"id":"fda913e3-1130-5595-ad6d-a8abd543ec65","excerpt":"This is my first post on my new fake blog! How exciting! I\'m sure I\'ll write a lot more interesting things in the future. Oh, and here\'s a…","slug":"hello-world/","frontmatter":{"date":"May 04, 2019","title":"Hello World","description":"Hello World","featuredImg":{"childImageSharp":{"fluid":{"base64":"data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAwUC/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHVM+S8UIo5aiaSNEr/xAAbEAACAwEBAQAAAAAAAAAAAAABAgADERITIv/aAAgBAQABBQJN5Xdb06S/CLsDv9GvsmjIRhNatPNJgn//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQMBAT8BcZv/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAECAQE/AcjIf//EAB4QAAIBBAMBAAAAAAAAAAAAAAABERIiMZEhQXGB/9oACAEBAAY/Aro+DktSgpYzrY5a2TUoLVK8OTBg/8QAHhABAAMAAgIDAAAAAAAAAAAAAQARIUFRMWFxgfH/2gAIAQEAAT8h7wxdTKvNmz7Bnr7moycHiWNrXpF0NfGJfwjthPa23DVhX5n71gBQZ//aAAwDAQACAAMAAAAQk/cA/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERIRD/2gAIAQMBAT8QhZxJNRZ//8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERECH/2gAIAQIBAT8Qjx04yT//xAAeEAEAAgIDAQEBAAAAAAAAAAABABEhQTFRYcGBof/aAAgBAQABPxCxWsuVZF5RIcfIc96UjMo3koXN8fkaIivG965IgaCuxvsUzGriIFoVvMQOekVr+QzRKFJnqdR8b6ihm56vsx4Tsn//2Q==","aspectRatio":0.665680473372781,"src":"/static/6b2552472d778b2928cb9dbb72da0d79/16f14/hero-img.jpg","srcSet":"/static/6b2552472d778b2928cb9dbb72da0d79/07ab6/hero-img.jpg 225w,\\n/static/6b2552472d778b2928cb9dbb72da0d79/32fd5/hero-img.jpg 450w,\\n/static/6b2552472d778b2928cb9dbb72da0d79/16f14/hero-img.jpg 504w","sizes":"(max-width: 504px) 100vw, 504px"}}}}}]}}}');
+module.exports = JSON.parse('{"data":{"allMdx":{"nodes":[{"id":"0ce0e0a6-60f6-57bb-9471-b2758d8e155e","excerpt":"Wow! I love blogging so much already. Did you know that \\"despite its name, salted duck eggs can also be made from\\nchicken eggs, though the…","slug":"my-second-post/","frontmatter":{"date":"May 04, 2019","title":"My Second Post!","description":"my second post description","featuredImg":{"childImageSharp":{"fluid":{"base64":"data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAwUC/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHVM+S8UIo5aiaSNEr/xAAbEAACAwEBAQAAAAAAAAAAAAABAgADERITIv/aAAgBAQABBQJN5Xdb06S/CLsDv9GvsmjIRhNatPNJgn//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQMBAT8BcZv/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAECAQE/AcjIf//EAB4QAAIBBAMBAAAAAAAAAAAAAAABERIiMZEhQXGB/9oACAEBAAY/Aro+DktSgpYzrY5a2TUoLVK8OTBg/8QAHhABAAMAAgIDAAAAAAAAAAAAAQARIUFRMWFxgfH/2gAIAQEAAT8h7wxdTKvNmz7Bnr7moycHiWNrXpF0NfGJfwjthPa23DVhX5n71gBQZ//aAAwDAQACAAMAAAAQk/cA/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERIRD/2gAIAQMBAT8QhZxJNRZ//8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERECH/2gAIAQIBAT8Qjx04yT//xAAeEAEAAgIDAQEBAAAAAAAAAAABABEhQTFRYcGBof/aAAgBAQABPxCxWsuVZF5RIcfIc96UjMo3koXN8fkaIivG965IgaCuxvsUzGriIFoVvMQOekVr+QzRKFJnqdR8b6ihm56vsx4Tsn//2Q==","aspectRatio":0.665680473372781,"src":"/static/6b2552472d778b2928cb9dbb72da0d79/16f14/hero-img.jpg","srcSet":"/static/6b2552472d778b2928cb9dbb72da0d79/07ab6/hero-img.jpg 225w,\\n/static/6b2552472d778b2928cb9dbb72da0d79/32fd5/hero-img.jpg 450w,\\n/static/6b2552472d778b2928cb9dbb72da0d79/16f14/hero-img.jpg 504w","sizes":"(max-width: 504px) 100vw, 504px"}}}}},{"id":"023a2b28-969d-5f27-beb0-1ecb2cb62639","excerpt":"Far far away, behind the word mountains, far from the countries Vokalia and\\nConsonantia, there live the blind texts. Separated they live in…","slug":"new-beginnings/","frontmatter":{"date":"May 04, 2019","title":"New Beginnings","description":"This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.","featuredImg":{"childImageSharp":{"fluid":{"base64":"data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAwUC/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHVM+S8UIo5aiaSNEr/xAAbEAACAwEBAQAAAAAAAAAAAAABAgADERITIv/aAAgBAQABBQJN5Xdb06S/CLsDv9GvsmjIRhNatPNJgn//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQMBAT8BcZv/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAECAQE/AcjIf//EAB4QAAIBBAMBAAAAAAAAAAAAAAABERIiMZEhQXGB/9oACAEBAAY/Aro+DktSgpYzrY5a2TUoLVK8OTBg/8QAHhABAAMAAgIDAAAAAAAAAAAAAQARIUFRMWFxgfH/2gAIAQEAAT8h7wxdTKvNmz7Bnr7moycHiWNrXpF0NfGJfwjthPa23DVhX5n71gBQZ//aAAwDAQACAAMAAAAQk/cA/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERIRD/2gAIAQMBAT8QhZxJNRZ//8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERECH/2gAIAQIBAT8Qjx04yT//xAAeEAEAAgIDAQEBAAAAAAAAAAABABEhQTFRYcGBof/aAAgBAQABPxCxWsuVZF5RIcfIc96UjMo3koXN8fkaIivG965IgaCuxvsUzGriIFoVvMQOekVr+QzRKFJnqdR8b6ihm56vsx4Tsn//2Q==","aspectRatio":0.665680473372781,"src":"/static/6b2552472d778b2928cb9dbb72da0d79/16f14/hero-img.jpg","srcSet":"/static/6b2552472d778b2928cb9dbb72da0d79/07ab6/hero-img.jpg 225w,\\n/static/6b2552472d778b2928cb9dbb72da0d79/32fd5/hero-img.jpg 450w,\\n/static/6b2552472d778b2928cb9dbb72da0d79/16f14/hero-img.jpg 504w","sizes":"(max-width: 504px) 100vw, 504px"}}}}},{"id":"fda913e3-1130-5595-ad6d-a8abd543ec65","excerpt":"This is my first post on my new fake blog! How exciting! I\'m sure I\'ll write a lot more interesting things in the future. Oh, and here\'s a…","slug":"hello-world/","frontmatter":{"date":"May 04, 2019","title":"Hello World","description":"Hello World","featuredImg":{"childImageSharp":{"fluid":{"base64":"data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAwUC/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHVM+S8UIo5aiaSNEr/xAAbEAACAwEBAQAAAAAAAAAAAAABAgADERITIv/aAAgBAQABBQJN5Xdb06S/CLsDv9GvsmjIRhNatPNJgn//xAAWEQEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQMBAT8BcZv/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAECAQE/AcjIf//EAB4QAAIBBAMBAAAAAAAAAAAAAAABERIiMZEhQXGB/9oACAEBAAY/Aro+DktSgpYzrY5a2TUoLVK8OTBg/8QAHhABAAMAAgIDAAAAAAAAAAAAAQARIUFRMWFxgfH/2gAIAQEAAT8h7wxdTKvNmz7Bnr7moycHiWNrXpF0NfGJfwjthPa23DVhX5n71gBQZ//aAAwDAQACAAMAAAAQk/cA/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERIRD/2gAIAQMBAT8QhZxJNRZ//8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERECH/2gAIAQIBAT8Qjx04yT//xAAeEAEAAgIDAQEBAAAAAAAAAAABABEhQTFRYcGBof/aAAgBAQABPxCxWsuVZF5RIcfIc96UjMo3koXN8fkaIivG965IgaCuxvsUzGriIFoVvMQOekVr+QzRKFJnqdR8b6ihm56vsx4Tsn//2Q==","aspectRatio":0.665680473372781,"src":"/static/6b2552472d778b2928cb9dbb72da0d79/16f14/hero-img.jpg","srcSet":"/static/6b2552472d778b2928cb9dbb72da0d79/07ab6/hero-img.jpg 225w,\\n/static/6b2552472d778b2928cb9dbb72da0d79/32fd5/hero-img.jpg 450w,\\n/static/6b2552472d778b2928cb9dbb72da0d79/16f14/hero-img.jpg 504w","sizes":"(max-width: 504px) 100vw, 504px"}}}}}]}}}');
 
 /***/ }),
 

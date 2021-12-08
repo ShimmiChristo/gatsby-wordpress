@@ -8259,45 +8259,44 @@ __webpack_require__.r(__webpack_exports__);
 const FooterContainer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].footer.withConfig({
   displayName: "footer__FooterContainer"
 })(["background-color:var(--color-brand-gray-6);margin-top:2rem;li{list-style:none;padding-bottom:0.25rem;}"]);
+const FooterColumn = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
+  displayName: "footer__FooterColumn"
+})(["display:flex;flex-direction:column;justify-content:flex-start;align-items:center;@media (max-width:767px){padding:0 2rem;margin-bottom:0;flex-direction:row;flex-wrap:wrap;text-align:center;justify-content:center;& h4{flex:0 0 100%;}}"]);
 
 function Footer() {
   const {
     nav,
     social,
     author
-  } = (0,_hooks_use_site_metadata__WEBPACK_IMPORTED_MODULE_2__.useSiteMetadata)();
+  } = (0,_hooks_use_site_metadata__WEBPACK_IMPORTED_MODULE_2__.UseSiteMetadata)();
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(FooterContainer, {
     className: ""
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "col-md-6 my-3 text-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", {
-    className: "footer__title"
-  }, "Links"), nav.map(column => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
-    className: "footer__item"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(FooterColumn, {
+    className: "col-md-6 my-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Links"), nav.map(column => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    className: "px-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(gatsby__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: column.link
-  }, column.name)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "col-md-6 my-3 text-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", {
-    className: "footer__title"
-  }, "Follow"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
-    className: "footer__item"
+  }, column.name)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(FooterColumn, {
+    className: "col-md-6 my-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Follow"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    className: "px-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: `https://twitter.com/${(social === null || social === void 0 ? void 0 : social.twitter) || ``}`
   }, "Twitter")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
-    className: "footer__item"
+    className: "px-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: `https://instagram.com/${(social === null || social === void 0 ? void 0 : social.instagram) || ``}`
   }, "Instagram")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
-    className: "footer__item"
+    className: "px-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: `https://youtube.com/${(social === null || social === void 0 ? void 0 : social.youtube) || ``}`
   }, ' ', "Youtube")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
-    className: "footer__item"
+    className: "px-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: `https://github.com/${(social === null || social === void 0 ? void 0 : social.github) || ``}`
   }, " Github")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -8365,7 +8364,7 @@ function HeaderV2() {
     title,
     nav,
     logo
-  } = (0,_hooks_use_site_metadata__WEBPACK_IMPORTED_MODULE_2__.useSiteMetadata)();
+  } = (0,_hooks_use_site_metadata__WEBPACK_IMPORTED_MODULE_2__.UseSiteMetadata)();
   const {
     0: menuActive,
     1: setMenuActive
@@ -8631,11 +8630,11 @@ SEO.propTypes = {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "useSiteMetadata": () => (/* binding */ useSiteMetadata)
+/* harmony export */   "UseSiteMetadata": () => (/* binding */ UseSiteMetadata)
 /* harmony export */ });
 /* harmony import */ var _public_page_data_sq_d_3215011712_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../public/page-data/sq/d/3215011712.json */ "./public/page-data/sq/d/3215011712.json");
 
-const useSiteMetadata = () => {
+const UseSiteMetadata = () => {
   const {
     site
   } = _public_page_data_sq_d_3215011712_json__WEBPACK_IMPORTED_MODULE_0__.data;

@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
-export const getLatestPosts = () => {
+export const GetLatestPosts = () => {
   const { allWpPost } = useStaticQuery(
     graphql`
       query {
@@ -21,6 +21,11 @@ export const getLatestPosts = () => {
                 node {
                   uri
                   sourceUrl
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData
+                    }
+                  }
                 }
               }
             }
@@ -29,5 +34,5 @@ export const getLatestPosts = () => {
       }
     `
   );
-  return allWpPost.edges.node;
+  return allWpPost;
 };

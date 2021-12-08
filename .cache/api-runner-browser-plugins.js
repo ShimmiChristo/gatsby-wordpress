@@ -1,4 +1,7 @@
 module.exports = [{
+      plugin: require('../node_modules/gatsby-plugin-image/gatsby-browser.js'),
+      options: {"plugins":[]},
+    },{
       plugin: require('../node_modules/gatsby-remark-images/gatsby-browser.js'),
       options: {"plugins":[],"maxWidth":630,"withWebp":true,"showCaptions":true,"quality":100,"linkImagesToOriginal":true,"markdownCaptions":false,"backgroundColor":"white","withAvif":false,"tracedSVG":false,"loading":"lazy","decoding":"async","disableBgImageOnAlpha":false,"disableBgImage":false},
     },{
@@ -21,9 +24,6 @@ module.exports = [{
       options: {"plugins":[]},
     },{
       plugin: require('../node_modules/gatsby-plugin-catch-links/gatsby-browser.js'),
-      options: {"plugins":[]},
-    },{
-      plugin: require('../node_modules/gatsby-plugin-image/gatsby-browser.js'),
       options: {"plugins":[]},
     },{
       plugin: require('../node_modules/gatsby-source-wordpress/gatsby-browser.js'),

@@ -20,7 +20,7 @@ const Homepage = ({ data, location }) => {
             <li><Link to="/blog">Blog</Link></li>
           </ul>
         </div>
-      <AboutMe />
+      {/* <AboutMe /> */}
       <LatestPosts />
     </Layout>
   )

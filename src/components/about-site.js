@@ -1,5 +1,5 @@
 import React from "react"
-import { useSiteMetadata } from "../hooks/use-site-metadata"
+import { UseSiteMetadata } from "../hooks/use-site-metadata"
 import styled from "styled-components"
 // import { useStaticQuery, graphql } from "gatsby"
 // import Image from "gatsby-image"
@@ -29,7 +29,7 @@ const Headline = styled.div``
 const Info = styled.div``
 
 function AboutSite() {
-  const { author, title, description, headline } = useSiteMetadata()
+  const { author, title, description, headline } = UseSiteMetadata()
 
   return (
     <section>

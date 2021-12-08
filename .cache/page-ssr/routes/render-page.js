@@ -6521,6 +6521,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "apiRunnerAsync": () => (/* binding */ apiRunnerAsync)
 /* harmony export */ });
 var plugins = [{
+  name: 'gatsby-plugin-image',
+  plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-image/gatsby-ssr */ "./node_modules/gatsby-plugin-image/gatsby-ssr.js"),
+  options: {
+    "plugins": []
+  }
+}, {
   name: 'gatsby-plugin-manifest',
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-manifest/gatsby-ssr */ "./node_modules/gatsby-plugin-manifest/gatsby-ssr.js"),
   options: {
@@ -6616,12 +6622,6 @@ var plugins = [{
 }, {
   name: 'gatsby-plugin-fontawesome-css',
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-fontawesome-css/gatsby-ssr */ "./node_modules/gatsby-plugin-fontawesome-css/gatsby-ssr.js"),
-  options: {
-    "plugins": []
-  }
-}, {
-  name: 'gatsby-plugin-image',
-  plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-image/gatsby-ssr */ "./node_modules/gatsby-plugin-image/gatsby-ssr.js"),
   options: {
     "plugins": []
   }

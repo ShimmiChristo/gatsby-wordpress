@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---cache-dev-404-page-js",
     "path": "/dev-404-page/",
-    "result": {"data":{"allSiteFunction":{"nodes":[]},"allSitePage":{"nodes":[{"path":"/hello-world/"},{"path":"/404/"},{"path":"/404.html"},{"path":"/blog/"},{"path":"/"},{"path":"/using-typescript/"}]}},"pageContext":{}},
+    "result": {"data":{"allSiteFunction":{"nodes":[]},"allSitePage":{"nodes":[{"path":"/post-2/"},{"path":"/hello-world/"},{"path":"/404/"},{"path":"/404.html"},{"path":"/blog/"},{"path":"/"},{"path":"/using-typescript/"}]}},"pageContext":{}},
     "staticQueryHashes": []}

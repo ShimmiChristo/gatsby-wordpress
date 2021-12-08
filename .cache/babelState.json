@@ -7,6 +7,12 @@
           "options": {}
         },
         {
+          "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/gatsby-plugin-image/dist/babel-plugin-parse-static-images.js",
+          "options": {
+            "cacheDir": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/.cache/caches/gatsby-plugin-image"
+          }
+        },
+        {
           "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/gatsby-plugin-mdx/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
           "options": {}
         },
@@ -23,12 +29,6 @@
             "topLevelImportPaths": [],
             "pure": false,
             "ssr": false
-          }
-        },
-        {
-          "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/gatsby-plugin-image/dist/babel-plugin-parse-static-images.js",
-          "options": {
-            "cacheDir": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/.cache/caches/gatsby-plugin-image"
           }
         },
         {
@@ -67,14 +67,14 @@
           "options": {}
         },
         {
-          "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/gatsby-plugin-mdx/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
-          "options": {}
-        },
-        {
           "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/gatsby-plugin-image/dist/babel-plugin-parse-static-images.js",
           "options": {
             "cacheDir": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/.cache/caches/gatsby-plugin-image"
           }
+        },
+        {
+          "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/gatsby-plugin-mdx/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
+          "options": {}
         },
         {
           "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
@@ -127,14 +127,14 @@
           "options": {}
         },
         {
-          "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/gatsby-plugin-mdx/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
-          "options": {}
-        },
-        {
           "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/gatsby-plugin-image/dist/babel-plugin-parse-static-images.js",
           "options": {
             "cacheDir": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/.cache/caches/gatsby-plugin-image"
           }
+        },
+        {
+          "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/gatsby-plugin-mdx/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
+          "options": {}
         },
         {
           "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
@@ -187,14 +187,14 @@
           "options": {}
         },
         {
-          "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/gatsby-plugin-mdx/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
-          "options": {}
-        },
-        {
           "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/gatsby-plugin-image/dist/babel-plugin-parse-static-images.js",
           "options": {
             "cacheDir": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/.cache/caches/gatsby-plugin-image"
           }
+        },
+        {
+          "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/gatsby-plugin-mdx/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
+          "options": {}
         },
         {
           "name": "/Users/cshimmin/Documents/_p-projects/ER-Project/gatsby-wordpress/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",

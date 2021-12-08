@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { useSiteMetadata } from "../hooks/use-site-metadata"
+import { UseSiteMetadata } from "../hooks/use-site-metadata"
 import { usePublishedPosts } from "../hooks/use-published-posts"
 
 import AuthorBio from "../components/author-bio"
@@ -9,7 +9,7 @@ import SEO from "../components/seo"
 import BlogPostThumbnailImg from "../components/blog-post-thumbnail-img"
 
 const BlogIndex = ({ data, location }) => {
-  const { title, description, headline } = useSiteMetadata()
+  const { title, description, headline } = UseSiteMetadata()
   const { nodes } = usePublishedPosts()
   const siteTitle = title || `Title`
   const posts = nodes
