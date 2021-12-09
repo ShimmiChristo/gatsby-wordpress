@@ -23,7 +23,7 @@ export const GetLatestPosts = () => {
                   sourceUrl
                   localFile {
                     childImageSharp {
-                      gatsbyImageData
+                      gatsbyImageData(width: 600)
                     }
                   }
                 }
