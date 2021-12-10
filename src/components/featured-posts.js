@@ -2,16 +2,16 @@ import React from 'react';
 import { Link } from 'gatsby';
 // import Image from 'gatsby-image'; // !deprecated
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { GetLatestPosts } from '../hooks/get-latest-posts';
+import { GetFeaturedPosts } from '../hooks/get-featured-posts';
 // import styled from "styled-components"
 
-function LatestPosts() {
-  const { edges } = GetLatestPosts();
+function FeaturedPosts() {
+  const { edges } = GetFeaturedPosts();
 
   return (
     <section>
       <div className="row">
-        <h2 className="page__title latest-posts col-11">Latest Posts</h2>
+        <h2 className="page__title featured-posts col-11">Featured Posts</h2>
         <div className="col-1">
           <Link to="/blog">view more</Link>
         </div>
@@ -31,7 +31,7 @@ function LatestPosts() {
             ? item.node.categories.nodes
             : [];
           return (
-            <li key={keyId} className="post col-md-3">
+            <li key={keyId} className="post col-md-6">
               <div>
                 <Link to={item.node.uri}>
                   <GatsbyImage image={featuredImgSrc} alt={featuredImgAlt} />
@@ -61,4 +61,4 @@ function LatestPosts() {
   );
 }
 
-export default LatestPosts;
+export default FeaturedPosts;

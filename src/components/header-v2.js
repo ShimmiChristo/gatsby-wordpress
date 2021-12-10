@@ -205,6 +205,18 @@ function HeaderV2() {
   const { title, nav, logo } = UseSiteMetadata();
   const [menuActive, setMenuActive] = useState(false);
   const [subMenuActive, setSubMenuActive] = useState(false);
+  // const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
+
+  // useEffect(() => {
+  //   window.addEventListener(
+  //     'resize',
+  //     () => {
+  //       const ismobile = window.innerWidth < 767;
+  //       if (ismobile !== isMobile) setIsMobile(ismobile);
+  //     },
+  //     false
+  //   );
+  // }, [isMobile]);
 
   let logoImg;
 
@@ -217,12 +229,12 @@ function HeaderV2() {
   function navClick(e) {
     e.preventDefault();
     const bodyTag = document.body.classList;
-    if (menuActive) {
+    if (menuActive === false && window.innerWidth < 767) {
+      setMenuActive(true);
+      bodyTag.add('nav-open');
+    } else {
       setMenuActive(false);
       bodyTag.remove('nav-open');
-    } else {
-      bodyTag.add('nav-open');
-      setMenuActive(true);
     }
     return;
   }

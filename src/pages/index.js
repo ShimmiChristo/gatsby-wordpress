@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import AboutMe from "../components/about-me"
 import LatestPosts from "../components/latest-posts"
+import FeaturedPosts from "../components/featured-posts"
 
 const Homepage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -22,6 +23,7 @@ const Homepage = ({ data, location }) => {
         </div>
       {/* <AboutMe /> */}
       <LatestPosts />
+      <FeaturedPosts />
     </Layout>
   )
 }
