@@ -31,8 +31,22 @@ const FooterColumn = styled.div`
       flex: 0 0 100%;
     }
   }
-  
 `;
+
+function checkForSubNav(navItem) {
+  console.log('navitem - ', navItem);
+  if (navItem.link === '#') {
+    return navItem.subNavigation.map((subitem) => {
+      return (
+        <li className="px-3">
+          <Link to={subitem.link}>{subitem.name}</Link>
+        </li>
+      );
+    });
+  } else {
+    return <Link to={navItem.link}>{navItem.name}</Link>;
+  }
+}
 
 function Footer() {
   const { nav, social, author } = UseSiteMetadata();
@@ -43,10 +57,8 @@ function Footer() {
         <div className="row">
           <FooterColumn className="col-md-6 my-3">
             <h4>Links</h4>
-            {nav.map((column) => (
-              <li className="px-3">
-                <Link to={column.link}>{column.name}</Link>
-              </li>
+            {nav.map((navItem) => (
+              <li className="px-3">{checkForSubNav(navItem)}</li>
             ))}
           </FooterColumn>
           <FooterColumn className="col-md-6 my-3">

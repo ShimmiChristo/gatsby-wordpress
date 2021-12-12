@@ -30,16 +30,16 @@ module.exports = {
         link: '/',
       },
       {
-        name: 'Blog',
-        link: '/blog',
+        name: 'News',
+        link: '/category/news',
       },
       {
         name: 'Topics',
         link: '#',
         subNavigation: [
           {
-            name: 'Latest',
-            link: '/latest',
+            name: 'Featured',
+            link: '/category/featured',
           },
           {
             name: 'Trending',

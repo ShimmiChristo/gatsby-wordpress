@@ -1,5 +1,5 @@
-const path = require(`path`)
-const chunk = require(`lodash/chunk`)
+const path = require(`path`);
+const chunk = require(`lodash/chunk`);
 
 // This is a simple debugging tool
 // dd() will prettily dump to the terminal and kill the process
@@ -11,26 +11,35 @@ const chunk = require(`lodash/chunk`)
  *
  * See https://www.gatsbyjs.com/docs/node-apis/#createPages for more info.
  */
-exports.createPages = async gatsbyUtilities => {
+exports.createPages = async (gatsbyUtilities) => {
   // Query our posts from the GraphQL server
-  const posts = await getPosts(gatsbyUtilities)
+  const posts = await getPosts(gatsbyUtilities);
+  const categories = await getCategoryPages(gatsbyUtilities);
+  if (!categories.length) {
+    return;
+  }
 
   // If there are no posts in WordPress, don't do anything
   if (!posts.length) {
-    return
+    return;
   }
 
   // If there are posts, create pages for them
-  await createIndividualBlogPostPages({ posts, gatsbyUtilities })
+  await createIndividualBlogPostPages({ posts, categories, gatsbyUtilities });
+  // await createIndividualCategoryPages({ categories, gatsbyUtilities });
 
   // And a paginated archive
-  await createBlogPostArchive({ posts, gatsbyUtilities })
-}
+  await createBlogPostArchive({ posts, gatsbyUtilities });
+};
 
 /**
  * This function creates all the individual blog pages in this site
  */
-const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }) =>
+const createIndividualBlogPostPages = async ({
+  posts,
+  categories,
+  gatsbyUtilities,
+}) =>
   Promise.all(
     posts.map(({ previous, post, next }) =>
       // createPage is an action passed to createPages
@@ -56,8 +65,27 @@ const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }) =>
           nextPostId: next ? next.id : null,
         },
       })
+    ),
+    categories.map(({ category }) =>
+      gatsbyUtilities.actions.createPage({
+        // Use the WordPress uri as the Gatsby page path
+        // This is a good idea so that internal links and menus work 👍
+        path: category.uri,
+
+        // use the blog post template as the page component
+        component: path.resolve(`./src/templates/category-page.js`),
+
+        // `context` is available in the template as a prop and
+        // as a variable in GraphQL.
+        context: {
+          // we need to add the post id here
+          // so our blog post template knows which blog post
+          // the current page is (when you open it in a browser)
+          id: category.id,
+        },
+      })
     )
-  )
+  );
 
 /**
  * This function creates all the individual blog pages in this site
@@ -71,28 +99,28 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
         }
       }
     }
-  `)
+  `);
 
-  const { postsPerPage } = graphqlResult.data.wp.readingSettings
+  const { postsPerPage } = graphqlResult.data.wp.readingSettings;
 
-  const postsChunkedIntoArchivePages = chunk(posts, postsPerPage)
-  const totalPages = postsChunkedIntoArchivePages.length
+  const postsChunkedIntoArchivePages = chunk(posts, postsPerPage);
+  const totalPages = postsChunkedIntoArchivePages.length;
 
   return Promise.all(
     postsChunkedIntoArchivePages.map(async (_posts, index) => {
-      const pageNumber = index + 1
+      const pageNumber = index + 1;
 
-      const getPagePath = page => {
+      const getPagePath = (page) => {
         if (page > 0 && page <= totalPages) {
           // Since our homepage is our blog page
           // we want the first page to be "/" and any additional pages
           // to be numbered.
           // "/blog/2" for example
-          return page === 1 ? `/` : `/blog/${page}`
+          return page === 1 ? `/news` : `/news/${page}`;
         }
 
-        return null
-      }
+        return null;
+      };
 
       // createPage is an action passed to createPages
       // See https://www.gatsbyjs.com/docs/actions#createPage for more info
@@ -116,9 +144,9 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
           nextPagePath: getPagePath(pageNumber + 1),
           previousPagePath: getPagePath(pageNumber - 1),
         },
-      })
+      });
     })
-  )
+  );
 }
 
 /**
@@ -150,15 +178,41 @@ async function getPosts({ graphql, reporter }) {
         }
       }
     }
-  `)
+  `);
 
   if (graphqlResult.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
       graphqlResult.errors
-    )
-    return
+    );
+    return;
   }
 
-  return graphqlResult.data.allWpPost.edges
+  return graphqlResult.data.allWpPost.edges;
+}
+
+async function getCategoryPages({ graphql, reporter }) {
+  const graphqlResult = await graphql(/* GraphQL */ `
+    query WpCategories {
+      allWpCategory {
+        edges {
+          category: node {
+            id
+            name
+            uri
+          }
+        }
+      }
+    }
+  `);
+
+  if (graphqlResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your category pages`,
+      graphqlResult.errors
+    );
+    return;
+  }
+
+  return graphqlResult.data.allWpCategory.edges;
 }
