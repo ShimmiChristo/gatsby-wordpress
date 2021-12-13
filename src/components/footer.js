@@ -34,7 +34,6 @@ const FooterColumn = styled.div`
 `;
 
 function checkForSubNav(navItem) {
-  console.log('navitem - ', navItem);
   if (navItem.link === '#') {
     return navItem.subNavigation.map((subitem) => {
       return (

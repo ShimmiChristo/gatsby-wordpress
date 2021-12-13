@@ -50,7 +50,7 @@ const createIndividualBlogPostPages = async ({
         path: post.uri,
 
         // use the blog post template as the page component
-        component: path.resolve(`./src/templates/blog-post.js`),
+        component: path.resolve(`./src/templates/blog-post-sidebar.js`),
 
         // `context` is available in the template as a prop and
         // as a variable in GraphQL.

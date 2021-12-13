@@ -5,7 +5,7 @@ import Header from "./header-v2"
 import Footer from "./footer"
 
 
-const Layout = ({ isHomePage, children }) => {
+const Layout = ({ isHomePage, children, addClasses }) => {
   const {
     wp: {
       generalSettings: { title },
@@ -29,7 +29,7 @@ const Layout = ({ isHomePage, children }) => {
           <Header></Header>
         )}
 
-       <main className="container">{children}</main>
+       <main className={`container mx-auto ${addClasses}`}>{children}</main>
       <Footer></Footer>
 
     </div>
