@@ -18,7 +18,7 @@ function SidebarLatestPosts() {
           const featuredImgSrc = item.node.featuredImage
             ? getImage(item.node.featuredImage.node.localFile)
             : '';
-          const featuredImgAlt = item.node.featuredImage
+          const featuredImgAlt = item.node?.featuredImage
             ? item.node.featuredImage.node.altText
             : '';
           const categoriesArr = item.node.categories
@@ -34,7 +34,7 @@ function SidebarLatestPosts() {
               <div>
                 <div className="post__categories">
                   {categoriesArr.map((cat) => (
-                    <Link to={cat.link}>
+                    <Link key={cat.id} to={cat.link}>
                       <span>{cat.name}</span>
                     </Link>
                   ))}

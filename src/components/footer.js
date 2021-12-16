@@ -3,6 +3,10 @@ import { Link } from 'gatsby';
 import { UseSiteMetadata } from '../hooks/use-site-metadata';
 // import PropTypes from "prop-types"
 import styled from 'styled-components';
+import { v1 as uuidv1 } from 'uuid';
+
+const uuid = uuidv1();
+
 
 const FooterContainer = styled.footer`
   background-color: var(--color-brand-gray-6);
@@ -33,17 +37,21 @@ const FooterColumn = styled.div`
   }
 `;
 
-function checkForSubNav(navItem) {
+function checkForSubNav(navItem,i) {
   if (navItem.link === '#') {
-    return navItem.subNavigation.map((subitem) => {
+    return navItem.subNavigation.map((subitem,subi) => {
       return (
-        <li className="px-3">
+        <li key={uuid+i+subi} className="px-3">
           <Link to={subitem.link}>{subitem.name}</Link>
         </li>
       );
     });
   } else {
-    return <Link to={navItem.link}>{navItem.name}</Link>;
+    return (
+      <li key={uuid+i} className="px-3">
+        <Link to={navItem.link}>{navItem.name}</Link>
+      </li>
+    );
   }
 }
 
@@ -56,9 +64,7 @@ function Footer() {
         <div className="row">
           <FooterColumn className="col-md-6 my-3">
             <h4>Links</h4>
-            {nav.map((navItem) => (
-              <li className="px-3">{checkForSubNav(navItem)}</li>
-            ))}
+            {nav.map((navItem, i) => checkForSubNav(navItem, i))}
           </FooterColumn>
           <FooterColumn className="col-md-6 my-3">
             <h4>Follow</h4>
@@ -88,7 +94,7 @@ function Footer() {
             © {new Date().getFullYear()}
             {` `}
             {` Created by `}
-            <Link to={author.website}>{author.name}</Link>
+            <a href={author.website}>{author.name}</a>
           </div>
         </div>
       </div>

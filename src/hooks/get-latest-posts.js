@@ -12,6 +12,7 @@ export const GetLatestPosts = () => {
               uri
               categories {
                 nodes {
+                  id
                   name
                   link
                 }
@@ -19,7 +20,9 @@ export const GetLatestPosts = () => {
               date(formatString: "MMM D, YYYY")
               featuredImage {
                 node {
+                  id
                   uri
+                  altText
                   sourceUrl
                   localFile {
                     childImageSharp {

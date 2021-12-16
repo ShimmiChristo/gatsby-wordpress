@@ -7,6 +7,7 @@ import Layout from '../components/layout';
 import Seo from '../components/seo';
 import SidebarLatestPosts from '../components/sidebar--latest-posts';
 import SidebarGetCategories from '../components/sidebar--categories';
+import SidebarGetTags from '../components/sidebar--tags';
 
 const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
   const featuredImage = {
@@ -37,7 +38,7 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
             <p>{post.date}</p>
             <div className="post__categories">
               {categoriesArr.map((cat) => (
-                <Link to={cat.link}>
+                <Link key={cat.id} to={cat.link}>
                   <span>{cat.name}</span>
                 </Link>
               ))}
@@ -85,6 +86,7 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
         <aside>
           <SidebarLatestPosts />
           <SidebarGetCategories />
+          <SidebarGetTags />
         </aside>
       </div>
     </Layout>

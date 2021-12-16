@@ -246,7 +246,7 @@ function HeaderV2() {
     <HeaderContainer>
       <Background className={`${menuActive ? 'active' : ''}`}></Background>
       <Container>
-        <span class="h2">{logoImg}</span>
+        <span className="h2">{logoImg}</span>
         <NavBtn id="navMenu--btn" onClick={navClick}>
           <FontAwesomeIcon icon={faBars} size="2x" />
         </NavBtn>
@@ -268,7 +268,7 @@ function HeaderV2() {
                     {navMenu.name}
                     <FontAwesomeIcon icon={faAngleRight} size="2x" />
                   </Link>
-                  <ul class="sub-menu">
+                  <ul className="sub-menu">
                     {navMenu.subNavigation.map((subNavMenu) => (
                       <li key={subNavMenu.name} onClick={navClick}>
                         <Link to={subNavMenu.link}>{subNavMenu.name}</Link>

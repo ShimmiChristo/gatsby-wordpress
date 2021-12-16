@@ -23,7 +23,7 @@ function LatestPosts() {
           const featuredImgSrc = item.node.featuredImage
             ? getImage(item.node.featuredImage.node.localFile)
             : '';
-          const featuredImgAlt = item.node.featuredImage
+          const featuredImgAlt = item.node.featuredImage 
             ? item.node.featuredImage.node.altText
             : '';
           const publishedDate = item.node.date;

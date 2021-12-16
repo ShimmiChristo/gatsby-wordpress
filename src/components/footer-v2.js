@@ -3,6 +3,11 @@ import { Link } from "gatsby"
 import { UseSiteMetadata } from "../hooks/use-site-metadata"
 // import PropTypes from "prop-types"
 import styled from "styled-components"
+import { v1 as uuidv1 } from 'uuid';
+
+
+const uuid = uuidv1();
+
 
 const FooterContainer = styled.footer`
   background-color: var(--color-brand-gray-6);
@@ -51,8 +56,8 @@ function Footer() {
       <FooterColumns className="footer__columns">
         <FooterColumn>
           <h4 className="footer__title">Links</h4>
-          {nav.map(column => (
-            <li className="footer__item">
+          {nav.map((column, i) => (
+            <li key={uuid+i} className="footer__item">
               <Link to={column.link}>{column.name}</Link>
             </li>
           ))}
@@ -82,7 +87,7 @@ function Footer() {
         © {new Date().getFullYear()}
         {` `}
         {` Created by `}
-        <Link to={author.website}>{author.name}</Link>
+        <a href={author.website}>{author.name}</a>
       </FooterCopy>
     </FooterContainer>
   )

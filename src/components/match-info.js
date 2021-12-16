@@ -218,8 +218,8 @@ function Match({ matchId, courseMatch, player1, player2, player3, player4 }) {
           : setSectionHeight("closed")
       }}
     >
-      <i class="match__number">match {matchNumber}</i>
-      <div class="match__header">
+      <i className="match__number">match {matchNumber}</i>
+      <div className="match__header">
         <div className="match__team color-green">
           <div className="match__team--playerOne">{player1}</div>
           {player3 ? (
@@ -229,10 +229,10 @@ function Match({ matchId, courseMatch, player1, player2, player3, player4 }) {
           )}
         </div>
 
-        <div class="team__scores">
+        <div className="team__scores">
           <div
             id="team__one"
-            class={
+            className={
               "bk-gray " +
               (teamFinalScores.teamOne > teamFinalScores.teamTwo
                 ? `team-one-color text-white`
@@ -244,7 +244,7 @@ function Match({ matchId, courseMatch, player1, player2, player3, player4 }) {
 
           <div
             id="team__two"
-            class={
+            className={
               "bk-gray " +
               (teamFinalScores.teamOne < teamFinalScores.teamTwo
                 ? `team-two-color text-white`

@@ -53,8 +53,8 @@ function AboutMe() {
             <a href={`${author.website}/about`}>on my website</a>.
           </p>
           <p>
-            Email me at <span class="bold">{author.email}</span> or text me at{" "}
-            <span class="bold">{author.phone}</span>
+            Email me at <span className="bold">{author.email}</span> or text me at{" "}
+            <span className="bold">{author.phone}</span>
           </p>
         </Bio>
         <ProfilePic fluid={fluid} loading="lazy" />

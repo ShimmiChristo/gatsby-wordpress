@@ -29,8 +29,8 @@ function MatchScore({}) {
 
   return (
     <Section>
-      <div class="h1 team-color-one">{teams.team1.score}</div>
-      <div class="h1 team-color-two">{teams.team2.score}</div>
+      <div className="h1 team-color-one">{teams.team1.score}</div>
+      <div className="h1 team-color-two">{teams.team2.score}</div>
     </Section>
   )
 }
