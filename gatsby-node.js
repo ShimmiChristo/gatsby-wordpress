@@ -15,17 +15,16 @@ exports.createPages = async (gatsbyUtilities) => {
   // Query our posts from the GraphQL server
   const posts = await getPosts(gatsbyUtilities);
   const categories = await getCategoryPages(gatsbyUtilities);
-  if (!categories.length) {
-    return;
-  }
-
+  const tags = await getTagPages(gatsbyUtilities);
+  
   // If there are no posts in WordPress, don't do anything
-  if (!posts.length) {
+  if (!posts.length || !categories.length || !tags.length) {
     return;
   }
+  
 
   // If there are posts, create pages for them
-  await createIndividualBlogPostPages({ posts, categories, gatsbyUtilities });
+  await createIndividualBlogPostPages({ posts, categories, tags, gatsbyUtilities });
   // await createIndividualCategoryPages({ categories, gatsbyUtilities });
 
   // And a paginated archive
@@ -38,6 +37,7 @@ exports.createPages = async (gatsbyUtilities) => {
 const createIndividualBlogPostPages = async ({
   posts,
   categories,
+  tags,
   gatsbyUtilities,
 }) =>
   Promise.all(
@@ -68,20 +68,19 @@ const createIndividualBlogPostPages = async ({
     ),
     categories.map(({ category }) =>
       gatsbyUtilities.actions.createPage({
-        // Use the WordPress uri as the Gatsby page path
-        // This is a good idea so that internal links and menus work 👍
         path: category.uri,
-
-        // use the blog post template as the page component
         component: path.resolve(`./src/templates/category-page.js`),
-
-        // `context` is available in the template as a prop and
-        // as a variable in GraphQL.
         context: {
-          // we need to add the post id here
-          // so our blog post template knows which blog post
-          // the current page is (when you open it in a browser)
           id: category.id,
+        },
+      })
+    ),
+    tags.map(({ tag }) =>
+      gatsbyUtilities.actions.createPage({
+        path: tag.uri,
+        component: path.resolve(`./src/templates/tag-page.js`),
+        context: {
+          id: tag.id,
         },
       })
     )
@@ -215,4 +214,30 @@ async function getCategoryPages({ graphql, reporter }) {
   }
 
   return graphqlResult.data.allWpCategory.edges;
+}
+
+async function getTagPages({ graphql, reporter }) {
+  const graphqlResult = await graphql(/* GraphQL */ `
+    query WpTags {
+      allWpTag {
+        edges {
+          tag: node {
+            id
+            name
+            uri
+          }
+        }
+      }
+    }
+  `);
+
+  if (graphqlResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your category pages`,
+      graphqlResult.errors
+    );
+    return;
+  }
+
+  return graphqlResult.data.allWpTag.edges;
 }

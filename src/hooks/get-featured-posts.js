@@ -17,6 +17,7 @@ export const GetFeaturedPosts = () => {
               uri
               categories {
                 nodes {
+                  id
                   name
                   link
                 }
@@ -24,6 +25,7 @@ export const GetFeaturedPosts = () => {
               date(formatString: "MMM D, YYYY")
               featuredImage {
                 node {
+                  altText
                   uri
                   sourceUrl
                   localFile {

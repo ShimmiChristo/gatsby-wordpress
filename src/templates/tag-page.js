@@ -15,13 +15,13 @@ import parse from 'html-react-parser';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 
-const CategoryPageTemplate = ({ data: { category } }) => {
-  const posts = category.posts.nodes;
+const TagPageTemplate = ({ data: { tag } }) => {
+  const posts = tag.posts.nodes;
 
   return (
     <Layout>
-      <Seo title={category.name} description={category.description || ''} />
-      <h1>{category.name}</h1>
+      <Seo title={tag.name} description={tag.description || ''} />
+      <h1>{tag.name}</h1>
       {posts.map((post) => {
         const featuredImage = {
           data: post.featuredImage?.node?.localFile?.childImageSharp
@@ -55,9 +55,9 @@ const CategoryPageTemplate = ({ data: { category } }) => {
                     <span>{postAuthor}</span>
                     <span> / </span>
                     <div className="post__categories">
-                      {postCategories.map((postCategory) => (
-                        <Link key={postCategory.id} to={postCategory.uri}>
-                          <span>{postCategory.name}</span>
+                      {postCategories.map((postTag) => (
+                        <Link key={postTag.id} to={postTag.uri}>
+                          <span>{postTag.name}</span>
                         </Link>
                       ))}
                     </div>
@@ -76,11 +76,11 @@ const CategoryPageTemplate = ({ data: { category } }) => {
   );
 };
 
-export default CategoryPageTemplate;
+export default TagPageTemplate;
 
 export const pageQuery = graphql`
-  query CategoryPageById($id: String!) {
-    category: wpCategory(id: { eq: $id }) {
+  query TagPageById($id: String!) {
+    tag: wpTag(id: { eq: $id }) {
       id
       name
       posts {

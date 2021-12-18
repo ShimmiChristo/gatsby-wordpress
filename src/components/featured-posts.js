@@ -42,7 +42,7 @@ function FeaturedPosts() {
                 <span> / </span>
                 <div className="post__categories">
                   {categoriesArr.map((cat) => (
-                    <Link to={cat.link}>
+                    <Link key={cat.id} to={cat.link}>
                       <span>{cat.name}</span>
                     </Link>
                   ))}

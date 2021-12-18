@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { GetTagsList } from '../hooks/get-tags-list'
+import { GetTagsList } from '../hooks/get-tags-list';
 
 function SidebarGetTags() {
   // ? An alternative if you return the entire staticQuery
@@ -9,10 +9,10 @@ function SidebarGetTags() {
 
   const { edges } = GetTagsList();
 
-  return (
+  return edges ? (
     <section>
       <div className="row">
-        <div className="section__title categories-list">Categories</div>
+        <div className="section__title categories-list">Tags</div>
       </div>
       <ul className="row">
         {edges.map((item) => {
@@ -31,6 +31,8 @@ function SidebarGetTags() {
         })}
       </ul>
     </section>
+  ) : (
+    ''
   );
 }
 

@@ -223,7 +223,7 @@ function HeaderV2() {
   if (logo) {
     logoImg = <Img fixed={logo.childImageSharp.fixed} />;
   } else {
-    logoImg = <Link>{title}</Link>;
+    logoImg = <div>{title}</div>;
   }
 
   function navClick(e) {
