@@ -8,9 +8,15 @@ export const GetPostAuthors = () => {
           nodes {
             id
             name
-            twitter
-            instagram
-            facebook
+            twitter {
+              handle
+            }
+            instagram {
+              handle
+            }
+            facebook {
+              handle
+            }
           }
         }
       }

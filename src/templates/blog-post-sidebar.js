@@ -8,9 +8,8 @@ import Seo from '../components/seo';
 import SidebarLatestPosts from '../components/sidebar--latest-posts';
 import SidebarGetCategories from '../components/sidebar--categories';
 import SidebarGetTags from '../components/sidebar--tags';
-import { v1 as uuidv1 } from 'uuid';
-
-const uuid = uuidv1();
+// import { v1 as uuidv1 } from 'uuid';
+// const uuid = uuidv1();
 
 const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
   const featuredImage = {

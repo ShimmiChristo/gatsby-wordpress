@@ -1,7 +1,6 @@
 import React from "react"
 import { UseSiteMetadata } from "../hooks/use-site-metadata"
 import { useProfilePic } from "../hooks/use-profile-pic"
-// import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Image from "gatsby-image"
 

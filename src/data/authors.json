@@ -1,16 +1,32 @@
 [
   {
     "name": "Chris S",
-    "twitter": "shimmiChristo",
-    "instagram": "shimmiChristo",
-    "facebook": "shimmin.christopher",
-    "website": "https://chrisshimmin.com"
+    "twitter": {
+      "handle": "shimmiChristo"
+    },
+    "instagram": {
+      "handle": "shimmiChristo"
+    },
+    "facebook": {
+      "handle": "shimmin.christopher"
+    },
+    "website": {
+      "handle": "https://chrisshimmin.com"
+    }
   },
   {
     "name": "Test",
-    "twitter": "",
-    "instagram": "",
-    "facebook": "",
-    "website": ""
+    "twitter": {
+      "handle": ""
+    },
+    "instagram": {
+      "handle": ""
+    },
+    "facebook": {
+      "handle": ""
+    },
+    "website": {
+      "handle": ""
+    }
   }
 ]
