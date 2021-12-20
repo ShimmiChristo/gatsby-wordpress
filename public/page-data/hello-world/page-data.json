@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-blog-post-sidebar-js",
     "path": "/hello-world/",
-    "result": {"data":{"post":{"id":"cG9zdDox","excerpt":"<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n","content":"\n<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n","title":"Hello world!","categories":{"nodes":[{"name":"News","link":"/category/news/"}]},"date":"December 04, 2021","featuredImage":null},"previous":{"uri":"/post-2/","title":"Post #2"},"next":null},"pageContext":{"id":"cG9zdDox","previousPostId":"cG9zdDo2","nextPostId":null}},
-    "staticQueryHashes": ["1682016598","1812685854","2841359383","3121500610","3566326373","3910994251"]}
+    "result": {"data":{"post":{"id":"cG9zdDox","excerpt":"<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n","content":"\n<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n","title":"Hello world!","categories":{"nodes":[{"id":"dGVybToxOA==","name":"News","link":"/category/news/"}]},"date":"December 04, 2021","featuredImage":null},"previous":{"uri":"/post-2/","title":"Post #2"},"next":null},"pageContext":{"id":"cG9zdDox","previousPostId":"cG9zdDo2","nextPostId":null}},
+    "staticQueryHashes": ["1682016598","1812685854","2516208229","2841359383","3215011712","3768619824","3910994251"]}

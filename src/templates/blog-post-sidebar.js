@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import parse from 'html-react-parser';
-// import Bio from "../components/bio"
+import AuthorBio from '../components/author-bio-v2';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import SidebarLatestPosts from '../components/sidebar--latest-posts';
@@ -18,6 +18,9 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
     alt: post.featuredImage?.node?.alt || ``,
   };
   const categoriesArr = post.categories ? post.categories.nodes : [];
+  const authorName = post.author.node.name;
+  const authorDescription = post.author.node.description;
+  const authorAvatarUrl = post.author.node.avatar.url;
 
   return (
     <Layout addClasses={'row'}>
@@ -54,7 +57,9 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
 
           <hr />
 
-          <footer>{/* <Bio /> */}</footer>
+          <footer>
+            <AuthorBio authorName={authorName} authorDescription={authorDescription} authorAvatarUrl={authorAvatarUrl} />
+          </footer>
         </article>
 
         <nav className="blog-post-nav">
@@ -106,6 +111,15 @@ export const pageQuery = graphql`
   ) {
     post: wpPost(id: { eq: $id }) {
       id
+      author {
+        node {
+          name
+          description
+          avatar {
+            url
+          }
+        }
+      }
       excerpt
       content
       title
