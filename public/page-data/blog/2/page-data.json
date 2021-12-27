@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-blog-post-archive-js",
-    "path": "/blog/2",
-    "result": {"data":{"allWpPost":{"nodes":[{"excerpt":"<p>This is about the website. Thank you for reading!</p>\n","uri":"/post-4/","date":"December 10, 2021","title":"Post #4"},{"excerpt":"","uri":"/post-3/","date":"December 10, 2021","title":"Post #3"}]}},"pageContext":{"offset":2,"postsPerPage":2,"nextPagePath":"/blog/3","previousPagePath":"/blog/"}},
-    "staticQueryHashes": ["1682016598","2841359383","3215011712"]}

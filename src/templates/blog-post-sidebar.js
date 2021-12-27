@@ -8,6 +8,9 @@ import Seo from '../components/seo';
 import SidebarLatestPosts from '../components/sidebar--latest-posts';
 import SidebarGetCategories from '../components/sidebar--categories';
 import SidebarGetTags from '../components/sidebar--tags';
+// import BlogPostComments from '../components/comments-section';
+import BlogPostCommentsFB from '../components/comments-section--facebook';
+
 // import { v1 as uuidv1 } from 'uuid';
 // const uuid = uuidv1();
 
@@ -57,7 +60,12 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
           <hr />
 
           <footer>
-            <AuthorBio authorName={authorName} authorDescription={authorDescription} authorAvatarUrl={authorAvatarUrl} />
+            <AuthorBio
+              authorName={authorName}
+              authorDescription={authorDescription}
+              authorAvatarUrl={authorAvatarUrl}
+            />
+            <BlogPostCommentsFB />
           </footer>
         </article>
 

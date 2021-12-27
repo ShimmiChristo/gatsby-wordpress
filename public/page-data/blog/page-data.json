@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-blog-post-archive-js",
-    "path": "/blog/",
-    "result": {"data":{"allWpPost":{"nodes":[{"excerpt":"<p>Hello there. This is a blog post.</p>\n","uri":"/blog-post-4/","date":"December 10, 2021","title":"Blog Post #4"},{"excerpt":"","uri":"/blog-post-3/","date":"December 10, 2021","title":"Blog Post #3"},{"excerpt":"<p>This is about the website. Thank you for reading!</p>\n","uri":"/post-4/","date":"December 10, 2021","title":"Post #4"},{"excerpt":"","uri":"/post-3/","date":"December 10, 2021","title":"Post #3"},{"excerpt":"","uri":"/post-2/","date":"December 08, 2021","title":"Post #2"},{"excerpt":"<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n","uri":"/hello-world/","date":"December 04, 2021","title":"Hello world!"}]}},"pageContext":{"offset":0,"postsPerPage":10,"nextPagePath":null,"previousPagePath":null}},
-    "staticQueryHashes": ["1682016598","2841359383","3215011712"]}
