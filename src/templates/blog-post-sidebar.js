@@ -65,7 +65,7 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
               authorDescription={authorDescription}
               authorAvatarUrl={authorAvatarUrl}
             />
-            <BlogPostCommentsFB />
+            <BlogPostCommentsFB uri={post.uri}/>
           </footer>
         </article>
 
@@ -130,6 +130,7 @@ export const pageQuery = graphql`
       excerpt
       content
       title
+      uri
       categories {
         nodes {
           id
