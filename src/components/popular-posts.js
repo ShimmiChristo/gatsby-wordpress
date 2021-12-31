@@ -1,26 +1,38 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { GetLatestPosts } from '../hooks/get-latest-posts';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GetPopularPosts } from '../hooks/get-popular-posts';
 // import styled from "styled-components"
 
-function TrendingPosts() {
-  const { edges } = GetLatestPosts();
+function PopularPosts() {
+  const { edges } = GetPopularPosts();
 
   return (
     <section>
       <div className="row">
-        <h2 className="page__title trending-posts">Trending</h2>
+        <h2 className="page__title popular-posts">Popular</h2>
       </div>
       <ul className="row">
         {edges.map((item) => {
           const title = item.node.title;
           const keyId = item.node.id;
+          const featuredImgSrc = item.node.featuredImage
+            ? getImage(item.node.featuredImage.node.localFile)
+            : '';
+          const featuredImgAlt = item.node.featuredImage
+            ? item.node.featuredImage.node.altText
+            : '';
           const publishedDate = item.node.date;
           const categoriesArr = item.node.categories
             ? item.node.categories.nodes
             : [];
           return (
-            <li key={keyId} className="post">
+            <li key={keyId} className="post col-md-4">
+              <div>
+                <Link to={item.node.uri}>
+                  <GatsbyImage image={featuredImgSrc} alt={featuredImgAlt} />
+                </Link>
+              </div>
               <div>
                 <span className="post__date">{publishedDate}</span>
                 <span> / </span>
@@ -45,4 +57,4 @@ function TrendingPosts() {
   );
 }
 
-export default TrendingPosts;
+export default PopularPosts;
