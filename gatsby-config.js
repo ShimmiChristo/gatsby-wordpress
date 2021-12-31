@@ -19,8 +19,9 @@ module.exports = {
     social: {
       twitter: 'shimmiChristo',
       instagram: 'shimmiChristo',
+      linkedin: 'chrisshimmin',
       youtube: `shimdoggy`,
-      facebook: ``,
+      facebook: `shimmin.christopher`,
       github: `shimmiChristo`,
       google: ``,
     },

@@ -11,7 +11,7 @@ function TrendingPosts() {
       <div className="row">
         <h2 className="page__title trending-posts">Trending</h2>
       </div>
-      <ul className="row">
+      <ul className="row mb-3">
         {edges.map((item) => {
           const title = item.node.title;
           const keyId = item.node.id;

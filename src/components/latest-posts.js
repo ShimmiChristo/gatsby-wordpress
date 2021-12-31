@@ -16,7 +16,7 @@ function LatestPosts() {
           <Link to="/blog">view more</Link>
         </div>
       </div>
-      <ul className="row">
+      <ul className="row mb-3">
         {edges.map((item) => {
           const title = item.node.title;
           const keyId = item.node.id;

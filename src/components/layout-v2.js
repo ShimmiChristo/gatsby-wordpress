@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header-v2"
+import HeaderV3 from "./header-v3"
 import Footer from "./footer"
 
 
@@ -24,9 +24,9 @@ const LayoutV2 = ({ isHomePage, children }) => {
   return (
     <div className="global-wrapper" data-is-root-path={isHomePage}>
         {isHomePage ? (
-         <Header></Header>
+         <HeaderV3></HeaderV3>
         ) : (
-          <Header></Header>
+          <HeaderV3></HeaderV3>
         )}
 
        <main className="global-wrapper">{children}</main>

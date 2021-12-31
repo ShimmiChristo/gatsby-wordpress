@@ -1,11 +1,13 @@
 import React from 'react';
+import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
-import twitterIcon from '../../content/assets/twitter-logo.svg';
-import instagramIcon from '../../content/assets/instagram-logo.svg';
-import facebookIcon from '../../content/assets/facebook-logo.svg';
-import linkedinIcon from '../../content/assets/facebook-logo.svg';
+
 import { GetPostAuthors } from '../hooks/get-post-author';
 
+const twitterIcon = '../../content/assets/twitter-logo.svg';
+const facebookIcon = '../../content/assets/facebook-logo.svg';
+const instagramIcon = '../../content/assets/instagram-logo.svg';
+const linkedinIcon = '../../content/assets/facebook-logo.svg';
 const ImgSvgContainer = styled.img`
   height: 20px;
   width: 20px;
@@ -28,7 +30,14 @@ function BioV2({ authorName, authorDescription, authorAvatarUrl }) {
                 {author.twitter?.handle ? (
                   <li>
                     <a href={`https://twitter.com/${author.twitter?.handle}`}>
-                      <ImgSvgContainer src={twitterIcon} alt="twitter icon"></ImgSvgContainer>
+                      <StaticImage
+                        src={twitterIcon}
+                        alt="twitter icon"
+                        placeholder="blurred"
+                        layout="fixed"
+                        width={20}
+                        height={20}
+                      />
                     </a>
                   </li>
                 ) : (
@@ -40,7 +49,14 @@ function BioV2({ authorName, authorDescription, authorAvatarUrl }) {
                     <a
                       href={`https://instagram.com/${author.instagram?.handle}`}
                     >
-                      <ImgSvgContainer src={instagramIcon} alt="instagram icon"></ImgSvgContainer>
+                      <StaticImage
+                        src={instagramIcon}
+                        alt="instagram icon"
+                        placeholder="blurred"
+                        layout="fixed"
+                        width={20}
+                        height={20}
+                      />
                     </a>
                   </li>
                 ) : (
@@ -50,7 +66,14 @@ function BioV2({ authorName, authorDescription, authorAvatarUrl }) {
                 {author.facebook?.handle ? (
                   <li>
                     <a href={`https://facebook.com/${author.facebook?.handle}`}>
-                      <ImgSvgContainer src={facebookIcon} alt="facebook icon"></ImgSvgContainer>
+                      <StaticImage
+                        src={facebookIcon}
+                        alt="facebook icon"
+                        placeholder="blurred"
+                        layout="fixed"
+                        width={10}
+                        height={20}
+                      />
                     </a>
                   </li>
                 ) : (
@@ -60,7 +83,14 @@ function BioV2({ authorName, authorDescription, authorAvatarUrl }) {
                 {author.linkedin?.handle ? (
                   <li>
                     <a href={`https://linkedin.com/${author.linkedin?.handle}`}>
-                      <ImgSvgContainer src={linkedinIcon} alt="linkedin icon"></ImgSvgContainer>
+                      <StaticImage
+                        src={linkedinIcon}
+                        alt="linkedin icon"
+                        placeholder="blurred"
+                        layout="fixed"
+                        width={20}
+                        height={20}
+                      />
                     </a>
                   </li>
                 ) : (

@@ -122,14 +122,14 @@ code {
   padding: 0.2em 0.5em;
 }
 *::selection {
-  color: #222;
-  background: #f9b19b;
+  /* color: #222; */
+  /* background: #f9b19b; */
 }
 pre[class*="language-"] ::selection,
 code[class*="language-"]::selection,
 pre[class*="language-markdown"]::selection,
 code[class*="language-markdown"] ::selection {
-  background: #f9b19b;
+  /* background: #f9b19b; */
 }
 /* Heading */
 
@@ -431,7 +431,6 @@ button:hover,
   font-family: var(--font-heading);
 }
 .blog-post h2 {
-  border-bottom: 3px solid var(--color-brand-dark);
   padding-bottom: var(--spacing-2);
   font-family: var(--fontFamily-sans);
   font-weight: var(--fontWeight-semibold);
