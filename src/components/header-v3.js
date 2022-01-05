@@ -6,12 +6,15 @@ import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Search from './search';
 
 import {
   faBars,
   faTimes,
   faAngleRight,
 } from '@fortawesome/free-solid-svg-icons';
+
+const searchIndices = [{ name: `Pages`, title: `Pages` }];
 
 const twitterIcon = '../../content/assets/twitter-logo.svg';
 const facebookIcon = '../../content/assets/facebook-logo.svg';
@@ -57,6 +60,7 @@ const ContainerUpper = styled.div`
   padding: 0 2.5rem;
   align-items: center;
   justify-content: space-between;
+  z-index: 3;
   @media (max-width: 767px) {
     flex-direction: column;
   }
@@ -297,6 +301,8 @@ function HeaderV3() {
             <FontAwesomeIcon icon={faBars} size="2x" />
           </NavBtn>
           <span className="h2">{logoImg}</span>
+
+          <Search indices={searchIndices} />
         </ContainerUpper>
         <ContainerLower>
           <Nav id="navMenu" className={`${menuActive ? 'active' : ''}`}>
