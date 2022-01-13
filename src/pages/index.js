@@ -10,6 +10,7 @@ import FeaturedPosts from '../components/featured-posts';
 import Slider from '../components/slider';
 import TrendingPosts from '../components/trending-posts';
 import PopularPosts from '../components/popular-posts';
+import MailChimpSimpleForm from '../components/mailchimp--simple';
 
 const Homepage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
@@ -31,6 +32,7 @@ const Homepage = ({ data, location }) => {
           <TrendingPosts />
         </div>
       </div>
+      <MailChimpSimpleForm />
     </Layout>
   );
 };

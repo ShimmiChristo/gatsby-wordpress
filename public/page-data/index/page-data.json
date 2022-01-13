@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-index-js",
     "path": "/",
-    "result": {"data":{"site":{"siteMetadata":{"title":"Gatsby Starter Blog","siteUrl":"https://gatsby-starter-blog-demo.netlify.app"}}},"pageContext":{}},
+    "result": {"data":{"site":{"siteMetadata":{"title":"Gatsby Starter Blog","siteUrl":"https://gatsby-starter-blog-demo.netlify.app/"}}},"pageContext":{}},
     "staticQueryHashes": ["1440630269","1682016598","2241496589","2841359383","3215011712","3768619824"]}

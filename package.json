@@ -32,6 +32,7 @@
     "gatsby-plugin-google-analytics": "^4.2.0",
     "gatsby-plugin-google-tagmanager": "^4.2.0",
     "gatsby-plugin-image": "^2.3.0",
+    "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^4.2.0",
     "gatsby-plugin-mdx": "^3.2.0",
     "gatsby-plugin-offline": "^5.2.0",
