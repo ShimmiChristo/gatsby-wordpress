@@ -1,42 +1,71 @@
-import React from 'react';
-import styled from 'styled-components';
+/*
+  `addToMailchimp` returns a promise
+  https://javascript.info/async-await 
+  npm - react-hook-form
+  npm - gatsby-plugin-mailchimp (no longer being supported)
+*/
+
+import React, { useState } from 'react';
+// import styled from 'styled-components';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
+import { useForm } from 'react-hook-form';
 
 function MailChimpSimpleForm() {
-  // Since `addToMailchimp` returns a promise, you
-  // can handle the response in two different ways:
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-  // Note that you need to send an email & optionally, listFields
-  // these values can be pulled from React state, form fields,
-  // or wherever.  (Personally, I recommend storing in state).
+  // const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  // 1. via `.then`
-  // const _handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   addToMailchimp(email, listFields) // listFields are optional if you are only capturing the email address.
-  //     .then((data) => {
-  //       // I recommend setting data to React state
-  //       // but you can do whatever you want (including ignoring this `then()` altogether)
-  //       console.log(data);
-  //     })
-  //     .catch(() => {
-  //       // unnecessary because Mailchimp only ever
-  //       // returns a 200 status code
-  //       // see below for how to handle errors
-  //     });
-  // };
-
-  // 2. via `async/await`
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const result = await addToMailchimp(email, listFields);
-    // I recommend setting `result` to React state
-    // but you can do whatever you want
+  const onSubmit = async (data, e) => {
+    console.log(data);
+    // await sleep(2000);
+    // await addToMailchimp(formData.email);
+    if (data.email === 'bill') {
+      alert(JSON.stringify(data));
+      // setSubmitValue(data);
+      e.target.reset(); // reset after form submit
+    } else {
+      alert('There is an error');
+    }
   };
 
+  // const [formData, setFormData] = useState({
+  //   email: '',
+  // });
+
+  // const handleSubmitOld = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     await addToMailchimp(formData.email);
+  //     // result();
+  //   } catch (err) {
+  //     console.log('error message returned: ' + err);
+  //   }
+  // };
+
+  // const handleFormInput = (e) => {
+  //   setFormData({
+  //     email: e.target.value,
+  //   });
+  // };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input value="" type="email" />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {/* <input onChange={handleFormInput} value={formData.email} type="email" placeholder="Email" /> */}
+      <label>Email</label>
+      <input
+        type="text"
+        {...register('email', {
+          required: true,
+          pattern:
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        })}
+      />
+      {errors.email && <p>This is required</p>}
       <input label="Submit" type="submit" value="Subscribe" />
     </form>
   );
