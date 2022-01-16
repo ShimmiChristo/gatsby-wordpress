@@ -6,36 +6,60 @@
 */
 
 import React, { useState } from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import { useForm } from 'react-hook-form';
+
+const Form = styled.form`
+  display: flex;
+`;
 
 function MailChimpSimpleForm() {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm();
 
-  // const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const [formResponse, setFormResponse] = useState({
+    msg: null,
+  });
 
   const onSubmit = async (data, e) => {
-    console.log(data);
-    // await sleep(2000);
-    // await addToMailchimp(formData.email);
-    if (data.email === 'bill') {
-      alert(JSON.stringify(data));
-      // setSubmitValue(data);
-      e.target.reset(); // reset after form submit
-    } else {
-      alert('There is an error');
+    e.target.reset(); // reset after form submit
+    try {
+      const result = await addToMailchimp(data.email);
+      if (result.result === 'error') {
+        setFormResponse({
+          msg: (
+            <div
+              className="alert alert-danger"
+              dangerouslySetInnerHTML={{ __html: result.msg }}
+            />
+          ),
+        });
+      } else {
+        setFormResponse({
+          msg: (
+            <div
+              className="alert alert-success"
+              dangerouslySetInnerHTML={{ __html: result.msg }}
+            />
+          ),
+        });
+      }
+    } catch (err) {
+      console.log('error message returned: ' + err);
     }
-  };
 
-  // const [formData, setFormData] = useState({
-  //   email: '',
-  // });
+    // if (data.email === 'bill') {
+    //   alert(JSON.stringify(data));
+    //   // setSubmitValue(data);
+    //   e.target.reset(); // reset after form submit
+    // } else {
+    //   alert('There is an error');
+    // }
+  };
 
   // const handleSubmitOld = async (e) => {
   //   e.preventDefault();
@@ -56,17 +80,44 @@ function MailChimpSimpleForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {/* <input onChange={handleFormInput} value={formData.email} type="email" placeholder="Email" /> */}
-      <label>Email</label>
-      <input
-        type="text"
-        {...register('email', {
-          required: true,
-          pattern:
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-        })}
-      />
-      {errors.email && <p>This is required</p>}
-      <input label="Submit" type="submit" value="Subscribe" />
+      <div className="row">
+        <div className="form-group mb-2 col-2">
+          Newsletter
+        </div>
+        <div className="form-group mb-2 col">
+          <label className="sr-only" for="email">
+            Email
+          </label>
+          <input
+            id="email"
+            className="form-control"
+            type="email"
+            placeholder="Enter email"
+            {...register('email', {
+              required: true,
+              pattern: {
+                value:
+                  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                message: 'Invalid email',
+              },
+              maxLength: {
+                value: 100,
+                message: 'Your email is too long.',
+              },
+            })}
+          />
+          {errors.email && <p>{errors.email.message}</p>}
+        </div>
+        <div className="form-group mb-2 col">
+          <input
+            label="Submit"
+            type="submit"
+            value="Subscribe"
+            className="btn btn-primary"
+          />
+          {formResponse.msg}
+        </div>
+      </div>
     </form>
   );
 }
