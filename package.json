@@ -29,6 +29,7 @@
     "gatsby-plugin-algolia": "^0.25.0",
     "gatsby-plugin-feed": "^4.2.0",
     "gatsby-plugin-fontawesome-css": "^1.2.0",
+    "gatsby-plugin-gatsby-cloud": "^4.5.1",
     "gatsby-plugin-google-analytics": "^4.2.0",
     "gatsby-plugin-google-tagmanager": "^4.2.0",
     "gatsby-plugin-image": "^2.3.0",
