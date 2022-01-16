@@ -6,13 +6,8 @@
 */
 
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import { useForm } from 'react-hook-form';
-
-const Form = styled.form`
-  display: flex;
-`;
 
 function MailChimpSimpleForm() {
   const {
@@ -51,39 +46,12 @@ function MailChimpSimpleForm() {
     } catch (err) {
       console.log('error message returned: ' + err);
     }
-
-    // if (data.email === 'bill') {
-    //   alert(JSON.stringify(data));
-    //   // setSubmitValue(data);
-    //   e.target.reset(); // reset after form submit
-    // } else {
-    //   alert('There is an error');
-    // }
   };
-
-  // const handleSubmitOld = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await addToMailchimp(formData.email);
-  //     // result();
-  //   } catch (err) {
-  //     console.log('error message returned: ' + err);
-  //   }
-  // };
-
-  // const handleFormInput = (e) => {
-  //   setFormData({
-  //     email: e.target.value,
-  //   });
-  // };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/* <input onChange={handleFormInput} value={formData.email} type="email" placeholder="Email" /> */}
       <div className="row">
-        <div className="form-group mb-2 col-2">
-          Newsletter
-        </div>
+        <div className="form-group mb-2 col-2">Newsletter</div>
         <div className="form-group mb-2 col">
           <label className="sr-only" for="email">
             Email

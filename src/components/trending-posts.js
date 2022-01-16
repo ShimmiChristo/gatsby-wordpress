@@ -34,7 +34,7 @@ function TrendingPosts() {
               </div>
               <div>
                 <Link to={item.node.uri}>
-                  <h3 className="post__title">{title}</h3>
+                  <span className="post__title">{title}</span>
                 </Link>
               </div>
             </li>

@@ -45,8 +45,8 @@ module.exports = {
             link: '/category/featured',
           },
           {
-            name: 'Trending',
-            link: '/trending',
+            name: 'News',
+            link: '/news',
           },
         ],
       },
@@ -194,6 +194,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
+        id: process.env.GTM_ID,
         // datalayer to be set before GTM is loaded
         // should be a stringified object or object
         //
