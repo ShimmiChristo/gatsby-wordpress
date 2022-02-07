@@ -53,6 +53,7 @@
     "gatsby-transformer-json": "^4.2.0",
     "gatsby-transformer-remark": "^5.2.0",
     "gatsby-transformer-sharp": "^4.3.0",
+    "googleapis": "^92.0.0",
     "graphql": "^15.7.2",
     "html-react-parser": "^1.4.1",
     "lodash": "^4.17.21",

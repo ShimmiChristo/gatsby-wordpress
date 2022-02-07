@@ -1,5 +1,22 @@
 const path = require(`path`);
 const chunk = require(`lodash/chunk`);
+const crypto = require('crypto');
+const {google} = require('googleapis');
+
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+// Google Cloud API
+// const auth = new google.auth.GoogleAuth({
+//   keyFile: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+//   scopes: ['https://www.googleapis.com/auth/cloud-platform'],
+// });
+const ga4Property = process.env.GA4_PROPERTY_ID;
+const {BetaAnalyticsDataClient} = require('@google-analytics/data');
+const analyticsDataClient = new BetaAnalyticsDataClient({
+  keyFile: process.env.GOOGLE_APPLICATION_CREDENTIALS
+});
 
 // This is a simple debugging tool
 // dd() will prettily dump to the terminal and kill the process
@@ -241,3 +258,172 @@ async function getTagPages({ graphql, reporter }) {
 
   return graphqlResult.data.allWpTag.edges;
 }
+
+// async function getGAMostPopularPages() {
+//   const [response] = await analyticsDataClient.runReport({
+//     property: `properties/${ga4Property}`,
+//     dateRanges: [
+//       {
+//         startDate: '2022-01-01',
+//         endDate: 'today',
+//       },
+//     ],
+//     dimensions: [
+//       {
+//         name: 'city',
+//       },
+//     ],
+//     metrics: [
+//       {
+//         name: 'activeUsers',
+//       },
+//     ],
+//   });
+
+//   console.log('Report result:');
+//   response.rows.forEach(row => {
+//     console.log(row.dimensionValues[0], row.metricValues[0]);
+//   });
+// }
+// getGAMostPopularPages();
+
+exports.sourceNodes = async ({ actions }) => {
+  const { createNode } = actions;
+
+  // function authenticate() {
+  //   return gapi.auth2.getAuthInstance()
+  //       .signIn({scope: "https://www.googleapis.com/auth/analytics https://www.googleapis.com/auth/analytics.readonly"})
+  //       .then(function() { console.log("Sign-in successful"); },
+  //             function(err) { console.error("Error signing in", err); });
+  // }
+  // function loadClient() {
+  //   gapi.client.setApiKey("YOUR_API_KEY");
+  //   return gapi.client.load("https://analyticsdata.googleapis.com/$discovery/rest?version=v1beta")
+  //       .then(function() { console.log("GAPI client loaded for API"); },
+  //             function(err) { console.error("Error loading GAPI client for API", err); });
+  // }
+  // gapi.load("client:auth2", function() {
+  //   gapi.auth2.init({client_id: "YOUR_CLIENT_ID"});
+  // });
+
+  // // google auth logic
+  // const scopes = "https://www.googleapis.com/auth/analytics.readonly";
+  // const jwt = new google.auth.JWT(
+  //   process.env.CLIENT_EMAIL,
+  //   null,
+  //   process.env.PRIVATE_KEY,
+  //   scopes
+  // );
+  // await jwt.authorize();
+
+  // const analyticsReporting = google.analyticsreporting({
+  //   version: "v4",
+  //   auth: jwt,
+  // });
+
+
+  async function getGAMostPopularPages() {
+    // const [response] = await analyticsDataClient.runReport({
+    const response = await analyticsDataClient.runReport({
+      property: `properties/${ga4Property}`,
+      dateRanges: [
+        {
+          "startDate":"30daysAgo",
+          "endDate": 'today',
+        },
+      ],
+      dimensions: [
+        {
+          "name": 'pagePath',
+        },
+      ],
+      metrics: [
+        {
+          "name": 'screenPageViews',
+        },
+      ],
+    });
+
+    return response
+
+    // console.log('Report result:');
+    // response.rows.forEach(row => {
+    //   console.log(row.dimensionValues[0], row.metricValues[0]);
+    // });
+  }
+  // getGAMostPopularPages();
+
+  function createNodes(GAResult, nodeName) {
+    console.log(GAResult.data);
+    for (let [path, count] of GAResult.data.rows) {
+      createNode({
+        path,
+        count: Number(count),
+        id: path,
+        internal: {
+          type: nodeName,
+          contentDigest: crypto.createHash(`md5`).update(JSON.stringify({ nodeName, path, count })).digest(`hex`),
+          mediaType: `text/plain`,
+          description: `Page views per path`,
+        }
+      })
+    }
+  }
+
+  const recentResult = await getGAMostPopularPages();
+  createNodes(recentResult, `RecentPageViews`)
+
+  // // Analytics Reporting v4 query
+  // const result = await analyticsReporting.reports.batchGet({
+  //   requestBody: {
+  //     reportRequests: [
+  //       {
+  //         viewId: process.env.GA4_PROPERTY_ID,
+  //         dateRanges: [
+  //           {
+  //             startDate: "30DaysAgo",
+  //             endDate: "today",
+  //           },
+  //         ],
+  //         metrics: [
+  //           {
+  //             expression: "ga:pageviews",
+  //           },
+  //         ],
+  //         dimensions: [
+  //           {
+  //             name: "ga:pagePath",
+  //           },
+  //         ],
+  //         orderBys: [
+  //           {
+  //             sortOrder: "DESCENDING",
+  //             fieldName: "ga:pageviews",
+  //           },
+  //         ],
+  //       },
+  //     ],
+  //   },
+  // });
+
+  // // Add analytics data to graphql
+  // const { rows } = result.data.reports[0].data;
+  // for (const { dimensions, metrics } of rows) {
+  //   const path = dimensions[0];
+  //   const totalCount = metrics[0].values[0];
+  //   createNode({
+  //     path,
+  //     totalCount: Number(totalCount),
+  //     id: path,
+  //     internal: {
+  //       type: `PageViews`,
+  //       contentDigest: crypto
+  //         .createHash(`md5`)
+  //         .update(JSON.stringify({ path, totalCount }))
+  //         .digest(`hex`),
+  //       mediaType: `text/plain`,
+  //       description: `Page views per path`,
+  //     },
+  //   });
+  // }
+};
