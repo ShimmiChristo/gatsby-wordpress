@@ -1,7 +1,7 @@
 const path = require(`path`);
 const chunk = require(`lodash/chunk`);
 const crypto = require('crypto');
-const {google} = require('googleapis');
+const { google } = require('googleapis');
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -13,9 +13,9 @@ require('dotenv').config({
 //   scopes: ['https://www.googleapis.com/auth/cloud-platform'],
 // });
 const ga4Property = process.env.GA4_PROPERTY_ID;
-const {BetaAnalyticsDataClient} = require('@google-analytics/data');
+const { BetaAnalyticsDataClient } = require('@google-analytics/data');
 const analyticsDataClient = new BetaAnalyticsDataClient({
-  keyFile: process.env.GOOGLE_APPLICATION_CREDENTIALS
+  keyFile: process.env.GOOGLE_APPLICATION_CREDENTIALS,
 });
 
 // This is a simple debugging tool
@@ -33,15 +33,19 @@ exports.createPages = async (gatsbyUtilities) => {
   const posts = await getPosts(gatsbyUtilities);
   const categories = await getCategoryPages(gatsbyUtilities);
   const tags = await getTagPages(gatsbyUtilities);
-  
+
   // If there are no posts in WordPress, don't do anything
   if (!posts.length || !categories.length || !tags.length) {
     return;
   }
-  
 
   // If there are posts, create pages for them
-  await createIndividualBlogPostPages({ posts, categories, tags, gatsbyUtilities });
+  await createIndividualBlogPostPages({
+    posts,
+    categories,
+    tags,
+    gatsbyUtilities,
+  });
   // await createIndividualCategoryPages({ categories, gatsbyUtilities });
 
   // And a paginated archive
@@ -321,57 +325,65 @@ exports.sourceNodes = async ({ actions }) => {
   //   auth: jwt,
   // });
 
-
   async function getGAMostPopularPages() {
     // const [response] = await analyticsDataClient.runReport({
     const response = await analyticsDataClient.runReport({
       property: `properties/${ga4Property}`,
       dateRanges: [
         {
-          "startDate":"30daysAgo",
-          "endDate": 'today',
+          startDate: '30daysAgo',
+          endDate: 'today',
         },
       ],
       dimensions: [
         {
-          "name": 'pagePath',
+          name: 'pagePath',
         },
       ],
       metrics: [
         {
-          "name": 'screenPageViews',
+          name: 'screenPageViews',
         },
       ],
+      dimensionFilter: {
+        filter: {
+          stringFilter: {
+            matchType: 'FULL_REGEXP',
+            value: '^[A-Za-z0-9-_/]{2,}$',
+          },
+          fieldName: 'pagePath',
+        },
+      },
+
+      limit: 6,
     });
 
-    return response
-
-    // console.log('Report result:');
-    // response.rows.forEach(row => {
-    //   console.log(row.dimensionValues[0], row.metricValues[0]);
-    // });
+    return response;
   }
   // getGAMostPopularPages();
 
   function createNodes(GAResult, nodeName) {
-    console.log(GAResult.data);
-    for (let [path, count] of GAResult.data.rows) {
-      createNode({
-        path,
-        count: Number(count),
-        id: path,
-        internal: {
-          type: nodeName,
-          contentDigest: crypto.createHash(`md5`).update(JSON.stringify({ nodeName, path, count })).digest(`hex`),
-          mediaType: `text/plain`,
-          description: `Page views per path`,
-        }
-      })
+    console.log('GAResult ---------------------- ');
+    for (let count of GAResult[0].rows) {
+      console.log('count - ', count);
     }
+    // for (let [path, count] of GAResult.rows) {
+    //   createNode({
+    //     path,
+    //     count: Number(count),
+    //     id: path,
+    //     internal: {
+    //       type: nodeName,
+    //       contentDigest: crypto.createHash(`md5`).update(JSON.stringify({ nodeName, path, count })).digest(`hex`),
+    //       mediaType: `text/plain`,
+    //       description: `Page views per path`,
+    //     }
+    //   })
+    // }
   }
 
   const recentResult = await getGAMostPopularPages();
-  createNodes(recentResult, `RecentPageViews`)
+  createNodes(recentResult, `RecentPageViews`);
 
   // // Analytics Reporting v4 query
   // const result = await analyticsReporting.reports.batchGet({
