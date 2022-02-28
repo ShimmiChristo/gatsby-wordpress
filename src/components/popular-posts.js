@@ -5,7 +5,10 @@ import { GetPopularPosts } from '../hooks/get-popular-posts';
 // import styled from "styled-components"
 
 function PopularPosts() {
-  const { edges } = GetPopularPosts();
+  const { allMostViewedPages, allWpPost } = GetPopularPosts();
+  const result = allWpPost.edges.filter((node1) =>
+    allMostViewedPages.edges.some((node2) => node1.node.uri === node2.node.uri)
+  );
 
   return (
     <section>
@@ -13,7 +16,7 @@ function PopularPosts() {
         <h2 className="page__title popular-posts">Popular</h2>
       </div>
       <ul className="row">
-        {edges.map((item) => {
+        {result.map((item, index) => {
           const title = item.node.title;
           const keyId = item.node.id;
           const featuredImgSrc = item.node.featuredImage
@@ -26,31 +29,33 @@ function PopularPosts() {
           const categoriesArr = item.node.categories
             ? item.node.categories.nodes
             : [];
-          return (
-            <li key={keyId} className="post col-md-4">
-              <div>
-                <Link to={item.node.uri}>
-                  <GatsbyImage image={featuredImgSrc} alt={featuredImgAlt} />
-                </Link>
-              </div>
-              <div>
-                <span className="post__date">{publishedDate}</span>
-                <span> / </span>
-                <div className="post__categories">
-                  {categoriesArr.map((cat) => (
-                    <Link key={cat.id} to={cat.link}>
-                      <span>{cat.name}</span>
-                    </Link>
-                  ))}
+          if (index < 3) {
+            return (
+              <li key={keyId} className="post col-md-4">
+                <div>
+                  <Link to={item.node.uri}>
+                    <GatsbyImage image={featuredImgSrc} alt={featuredImgAlt} />
+                  </Link>
                 </div>
-              </div>
-              <div>
-                <Link to={item.node.uri}>
-                  <h3 className="post__title">{title}</h3>
-                </Link>
-              </div>
-            </li>
-          );
+                <div>
+                  <span className="post__date">{publishedDate}</span>
+                  <span> / </span>
+                  <div className="post__categories">
+                    {categoriesArr.map((cat) => (
+                      <Link key={cat.id} to={cat.link}>
+                        <span>{cat.name}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <Link to={item.node.uri}>
+                    <h3 className="post__title">{title}</h3>
+                  </Link>
+                </div>
+              </li>
+            );
+          }
         })}
       </ul>
     </section>

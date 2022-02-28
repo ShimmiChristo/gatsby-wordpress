@@ -1,10 +1,20 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
 export const GetPopularPosts = () => {
-  const { allWpPost } = useStaticQuery(
+  const data = useStaticQuery(
     graphql`
       query {
-        allWpPost(limit: 3) {
+        allMostViewedPages(
+          filter: { uri: { regex: "/^(?!(/|(/category/).*)$).*$/" } }
+        ) {
+          edges {
+            node {
+              id
+              uri
+            }
+          }
+        }
+        allWpPost {
           edges {
             node {
               id
@@ -37,5 +47,5 @@ export const GetPopularPosts = () => {
       }
     `
   );
-  return allWpPost;
+  return data;
 };

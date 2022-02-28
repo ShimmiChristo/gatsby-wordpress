@@ -1,12 +1,10 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
-export const GetTrendingPosts = () => {
+export const GetTrendingPages = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        allTrendingPages(
-          filter: { uri: { regex: "/^(?!(/|(/category/).*)$).*$/" } }
-        ) {
+        allTrendingPages(limit: 4) {
           edges {
             node {
               id
@@ -14,7 +12,16 @@ export const GetTrendingPosts = () => {
             }
           }
         }
-        allWpPost {
+        allWpCategory {
+          edges {
+            node {
+              id
+              uri
+              name
+            }
+          }
+        }
+        allWpPost(limit: 4) {
           edges {
             node {
               id

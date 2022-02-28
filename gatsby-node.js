@@ -294,8 +294,8 @@ async function getTagPages({ graphql, reporter }) {
 exports.sourceNodes = async ({ actions }) => {
   // https://www.gatsbyjs.com/docs/reference/config-files/actions/#createNode
   const { createNode } = actions;
-  const getMostViewedPages = await getGAPages('30daysAgo', 6);
-  const getTrendingPages = await getGAPages('7daysAgo', 4);
+  const getMostViewedPages = await getGAPages('30daysAgo', 12);
+  const getTrendingPages = await getGAPages('7daysAgo', 12);
 
   await createGANodes(getMostViewedPages, `MostViewedPages`, actions);
   await createGANodes(getTrendingPages, `TrendingPages`, actions);
@@ -325,7 +325,7 @@ const getGAPages = async (startDateParam, limitParam) =>  {
       filter: {
         stringFilter: {
           matchType: 'FULL_REGEXP',
-          value: '^[A-Za-z0-9-_/]{2,}$',
+          value: '^[A-Za-z0-9\-\_\/]{2,}$',
         },
         fieldName: 'pagePath',
       },
@@ -337,14 +337,16 @@ const getGAPages = async (startDateParam, limitParam) =>  {
   return response;
 }
 
+/* 
+  Pass page title, date, category link to getGAPages
+*/
 const createGANodes = async (GAResult, nodeName, actions) => {
-  console.log('GAResult ---------------------- ');
   for (let { dimensionValues, metricValues } of GAResult[0].rows) {
     let path = dimensionValues[0].value;
     let count = metricValues[0].value;
 
     actions.createNode({
-      path,
+      uri: path,
       count,
       id: path,
       internal: {
@@ -356,6 +358,7 @@ const createGANodes = async (GAResult, nodeName, actions) => {
         mediaType: `text/plain`,
         description: `Page views per path`,
       },
+      
     });
   }
   // for (let [path, count] of GAResult.rows) {
