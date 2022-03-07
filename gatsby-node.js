@@ -294,8 +294,8 @@ async function getTagPages({ graphql, reporter }) {
 exports.sourceNodes = async ({ actions }) => {
   // https://www.gatsbyjs.com/docs/reference/config-files/actions/#createNode
   const { createNode } = actions;
-  const getMostViewedPages = await getGAPages('30daysAgo', 12);
-  const getTrendingPages = await getGAPages('7daysAgo', 12);
+  const getMostViewedPages = await getGAPages('60daysAgo', 12);
+  const getTrendingPages = await getGAPages('30daysAgo', 12);
 
   await createGANodes(getMostViewedPages, `MostViewedPages`, actions);
   await createGANodes(getTrendingPages, `TrendingPages`, actions);
@@ -339,6 +339,7 @@ const getGAPages = async (startDateParam, limitParam) =>  {
 
 /* 
   Pass page title, date, category link to getGAPages
+  Params: GA Pages Array of objects, name of new node, 
 */
 const createGANodes = async (GAResult, nodeName, actions) => {
   for (let { dimensionValues, metricValues } of GAResult[0].rows) {

@@ -6,9 +6,30 @@ import { GetTrendingPosts } from '../hooks/get-trending-posts';
 
 function TrendingPosts() {
   const { allTrendingPages, allWpPost } = GetTrendingPosts();
-  const result = allWpPost.edges.filter((node1) =>
+  // get the trending posts
+  const postsResult = allWpPost.edges.filter((node1) =>
     allTrendingPages.edges.some((node2) => node1.node.uri === node2.node.uri)
   );
+  // get the trending category pages
+  const catPagesResult = allWpCategory.edges.filter((node1) =>
+    allWpCategory.edges.some((node2) => node1.node.uri === node2.node.uri)
+  );
+  // create function that finds URI in all three arrays
+  var allArrays = [
+    allTrendingPages.edges,
+    allWpPost.edges,
+    allWpCategory.edges,
+  ];
+  var result = allArrays.shift().reduce(function (res, v) {
+    if (
+      res.indexOf(v) === -1 &&
+      allArrays.every(function (a) {
+        return a.indexOf(v) !== -1;
+      })
+    )
+      res.push(v);
+    return res;
+  }, []);
 
   return (
     <section>
@@ -19,22 +40,23 @@ function TrendingPosts() {
         {result.map((item, index) => {
           const title = item.node.title;
           const keyId = item.node.id;
-          const publishedDate = item.node.date;
+          // const publishedDate = item.node.date;
           const categoriesArr = item.node.categories
             ? item.node.categories.nodes
             : [];
+
           if (index < 4) {
             return (
               <li key={keyId} className="post">
                 <div>
-                  <span className="post__date">{publishedDate}</span>
-                  <span> / </span>
+                  {/* <span className="post__date">{publishedDate}</span>
+                  <span> / </span> */}
                   <div className="post__categories">
-                    {categoriesArr.map((cat) => (
+                    {/* {categoriesArr?.map((cat) => (
                       <Link key={cat.id} to={cat.link}>
                         <span>{cat.name}</span>
                       </Link>
-                    ))}
+                    ))} */}
                   </div>
                 </div>
                 <div>
