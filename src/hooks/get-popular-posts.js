@@ -6,6 +6,8 @@ export const GetPopularPosts = () => {
       query {
         allMostViewedPages(
           filter: { uri: { regex: "/^(?!(/|(/category/).*)$).*$/" } }
+          sort: { fields: count, order: DESC }
+          limit: 6
         ) {
           edges {
             node {

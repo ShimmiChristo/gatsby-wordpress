@@ -263,34 +263,6 @@ async function getTagPages({ graphql, reporter }) {
   return graphqlResult.data.allWpTag.edges;
 }
 
-// async function getGAMostPopularPages() {
-//   const [response] = await analyticsDataClient.runReport({
-//     property: `properties/${ga4Property}`,
-//     dateRanges: [
-//       {
-//         startDate: '2022-01-01',
-//         endDate: 'today',
-//       },
-//     ],
-//     dimensions: [
-//       {
-//         name: 'city',
-//       },
-//     ],
-//     metrics: [
-//       {
-//         name: 'activeUsers',
-//       },
-//     ],
-//   });
-
-//   console.log('Report result:');
-//   response.rows.forEach(row => {
-//     console.log(row.dimensionValues[0], row.metricValues[0]);
-//   });
-// }
-// getGAMostPopularPages();
-
 exports.sourceNodes = async ({ actions }) => {
   // https://www.gatsbyjs.com/docs/reference/config-files/actions/#createNode
   const { createNode } = actions;
@@ -362,73 +334,4 @@ const createGANodes = async (GAResult, nodeName, actions) => {
       
     });
   }
-  // for (let [path, count] of GAResult.rows) {
-  //   createNode({
-  //     path,
-  //     count: Number(count),
-  //     id: path,
-  //     internal: {
-  //       type: nodeName,
-  //       contentDigest: crypto.createHash(`md5`).update(JSON.stringify({ nodeName, path, count })).digest(`hex`),
-  //       mediaType: `text/plain`,
-  //       description: `Page views per path`,
-  //     }
-  //   })
-  // }
 };
-
-
-
-// // Analytics Reporting v4 query
-// const result = await analyticsReporting.reports.batchGet({
-//   requestBody: {
-//     reportRequests: [
-//       {
-//         viewId: process.env.GA4_PROPERTY_ID,
-//         dateRanges: [
-//           {
-//             startDate: "30DaysAgo",
-//             endDate: "today",
-//           },
-//         ],
-//         metrics: [
-//           {
-//             expression: "ga:pageviews",
-//           },
-//         ],
-//         dimensions: [
-//           {
-//             name: "ga:pagePath",
-//           },
-//         ],
-//         orderBys: [
-//           {
-//             sortOrder: "DESCENDING",
-//             fieldName: "ga:pageviews",
-//           },
-//         ],
-//       },
-//     ],
-//   },
-// });
-
-// // Add analytics data to graphql
-// const { rows } = result.data.reports[0].data;
-// for (const { dimensions, metrics } of rows) {
-//   const path = dimensions[0];
-//   const totalCount = metrics[0].values[0];
-//   createNode({
-//     path,
-//     totalCount: Number(totalCount),
-//     id: path,
-//     internal: {
-//       type: `PageViews`,
-//       contentDigest: crypto
-//         .createHash(`md5`)
-//         .update(JSON.stringify({ path, totalCount }))
-//         .digest(`hex`),
-//       mediaType: `text/plain`,
-//       description: `Page views per path`,
-//     },
-//   });
-// }

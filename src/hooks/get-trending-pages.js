@@ -4,7 +4,11 @@ export const GetTrendingPages = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        allTrendingPages(limit: 4) {
+        allTrendingPages(
+          filter: { uri: { regex: "/^(?!(/|(/category/).*)$).*$/" } }
+          sort: { fields: count, order: DESC }
+          limit: 6
+        ) {
           edges {
             node {
               id
@@ -21,7 +25,7 @@ export const GetTrendingPages = () => {
             }
           }
         }
-        allWpPost(limit: 4) {
+        allWpPost {
           edges {
             node {
               id

@@ -53,7 +53,7 @@ function MailChimpSimpleForm() {
       <div className="row">
         <div className="form-group mb-2 col-2">Newsletter</div>
         <div className="form-group mb-2 col">
-          <label className="sr-only" for="email">
+          <label className="sr-only" htmlFor="email">
             Email
           </label>
           <input
