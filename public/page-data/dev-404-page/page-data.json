@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---cache-dev-404-page-js",
-    "path": "/dev-404-page/",
-    "result": {"data":{"allSiteFunction":{"nodes":[{"functionRoute":"click"},{"functionRoute":"hello-world"}]},"allSitePage":{"nodes":[{"path":"/blog-post-4"},{"path":"/blog-post-3"},{"path":"/post-4"},{"path":"/post-3"},{"path":"/post-2"},{"path":"/hello-world"},{"path":"/category/business"},{"path":"/category/featured"},{"path":"/category/news"},{"path":"/tag/about"},{"path":"/tag/blog"},{"path":"/tag/blog-post"},{"path":"/tag/featured"},{"path":"/tag/post"},{"path":"/tag/read-me"},{"path":"/tag/test"},{"path":"/news"},{"path":"/404/"},{"path":"/404.html"},{"path":"/"},{"path":"/using-typescript/"}]}},"pageContext":{}},
-    "staticQueryHashes": []}

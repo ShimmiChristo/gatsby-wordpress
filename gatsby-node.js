@@ -15,7 +15,10 @@ require('dotenv').config({
 const ga4Property = process.env.GA4_PROPERTY_ID;
 const { BetaAnalyticsDataClient } = require('@google-analytics/data');
 const analyticsDataClient = new BetaAnalyticsDataClient({
-  keyFile: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+  credentials: {
+    client_email: process.env.CLIENT_EMAIL,
+    private_key: process.env.PRIVATE_KEY
+  }
 });
 
 // This is a simple debugging tool
