@@ -29,7 +29,7 @@ function PopularPosts() {
           const categoriesArr = item.node.categories
             ? item.node.categories.nodes
             : [];
-            
+
           if (index < 3) {
             return (
               <li key={keyId} className="post col-md-4">

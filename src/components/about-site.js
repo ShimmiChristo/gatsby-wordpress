@@ -29,7 +29,7 @@ const Headline = styled.div``
 const Info = styled.div``
 
 function AboutSite() {
-  const { author, title, description, headline } = UseSiteMetadata()
+  const { title, description, headline } = UseSiteMetadata()
 
   return (
     <section>
