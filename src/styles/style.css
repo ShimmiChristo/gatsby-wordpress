@@ -1,7 +1,9 @@
+/* Bootstrap CSS - https://getbootstrap.com/docs/5.1/utilities/ */
+
 /* CSS Custom Properties Definitions */
 
 :root {
-  --maxWidth-none: "none";
+  --maxWidth-none: 'none';
   --maxWidth-xs: 20rem;
   --maxWidth-sm: 24rem;
   --maxWidth-md: 28rem;
@@ -11,9 +13,9 @@
   --maxWidth-3xl: 48rem;
   --maxWidth-4xl: 56rem;
   --maxWidth-5xl: 70rem;
-  --maxWidth-full: "100%";
+  --maxWidth-full: '100%';
   --maxWidth-wrapper: var(--maxWidth-4xl);
-  --spacing-px: "1px";
+  --spacing-px: '1px';
   --spacing-0: 0;
   --spacing-1: 0.25rem;
   --spacing-2: 0.5rem;
@@ -28,26 +30,30 @@
   --spacing-20: 5rem;
   --spacing-24: 6rem;
   --spacing-32: 8rem;
+
+  /* Fonts */
   --fontFamily-sans: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --fontFamily-serif: 'Merriweather', 'Georgia', Cambria, 'Times New Roman',
     Times, serif;
-  --fontFamily-code: Menlo, Monaco, "Courier New", monospace;
+  --fontFamily-code: Menlo, Monaco, 'Courier New', monospace;
   --font-body: var(--fontFamily-sans);
-  --font-heading: var(--fontFamily-serif);
+  --font-heading: var(--fontFamily-sans);
+
   --fontWeight-normal: 400;
   --fontWeight-medium: 500;
   --fontWeight-semibold: 600;
   --fontWeight-bold: 700;
   --fontWeight-extrabold: 800;
   --fontWeight-black: 900;
-  --fontSize-root: 17px;
   --lineHeight-none: 1;
   --lineHeight-tight: 1.1;
   --lineHeight-normal: 1.5;
   --lineHeight-relaxed: 1.625;
   /* 1.200 Minor Third Type Scale */
+
+  --fontSize-root: 17px;
   --fontSize-0: 0.833rem;
   --fontSize-1: 1rem;
   --fontSize-2: 1.2rem;
@@ -56,6 +62,15 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
+
+  --fontSize-xs: 0.7rem;
+  --fontSize-s: 0.85rem;
+  --fontSize: 1rem;
+  --fontSize-m: 1.5rem;
+  --fontSize-l: 2rem;
+  --fontSize-xl: 3rem;
+
+  /* Colors */
   --color-link-dark: #004f85;
   --color-link: #007ed4;
   --color-link-light: #23a6ff;
@@ -64,7 +79,6 @@
   --color-heading: #1a202c;
   --color-heading-black: #222;
   --color-accent: #d1dce5;
-
   --color-brand-dark: #ff7043;
   --color-brand-med: #ff906e;
   --color-brand-light: #f9b19b;
@@ -125,14 +139,15 @@ code {
   /* color: #222; */
   /* background: #f9b19b; */
 }
-pre[class*="language-"] ::selection,
-code[class*="language-"]::selection,
-pre[class*="language-markdown"]::selection,
-code[class*="language-markdown"] ::selection {
+pre[class*='language-'] ::selection,
+code[class*='language-']::selection,
+pre[class*='language-markdown']::selection,
+code[class*='language-markdown'] ::selection {
   /* background: #f9b19b; */
 }
 /* Heading */
 
+/* 
 h1,
 .h1,
 h2,
@@ -145,58 +160,9 @@ h5,
 .h5,
 h6,
 .h6 {
-  font-family: var(--font-heading);
-  margin-top: var(--spacing-6);
-  margin-bottom: var(--spacing-6);
-  line-height: var(--lineHeight-tight);
-  letter-spacing: -0.025em;
-}
-
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-  font-weight: var(--fontWeight-bold);
   color: var(--color-heading);
 }
-
-h1,
-.h1 {
-  font-weight: var(--fontWeight-black);
-  font-size: var(--fontSize-6);
-  color: var(--color-heading-black);
-}
-
-h2,
-.h2 {
-  font-size: var(--fontSize-5);
-}
-
-h3,
-.h3 {
-  font-size: var(--fontSize-4);
-}
-
-h4,
-.h4 {
-  font-size: var(--fontSize-3);
-}
-
-h5,
-.h5 {
-  font-size: var(--fontSize-2);
-}
-
-h6,
-.h6 {
-  font-size: var(--fontSize-1);
-}
+*/
 
 h1 > a {
   color: inherit;
@@ -212,30 +178,11 @@ h6 > a {
   color: inherit;
 }
 
-/* Prose */
-
-p {
-  line-height: var(--lineHeight-relaxed);
-  --baseline-multiplier: 0.179;
-  --x-height-multiplier: 0.35;
-  margin: var(--spacing-0) var(--spacing-0) var(--spacing-6) var(--spacing-0);
-  padding: var(--spacing-0);
-}
-
 ul,
 ol {
-  margin-left: var(--spacing-0);
-  margin-right: var(--spacing-0);
-  padding: var(--spacing-0);
-  margin-bottom: var(--spacing-8);
   list-style-position: outside;
   list-style-image: none;
-}
-
-ul li,
-ol li {
-  padding-left: var(--spacing-0);
-  margin-bottom: calc(var(--spacing-8) / 2);
+  list-style: none;
 }
 
 li > p {
@@ -283,7 +230,6 @@ table thead tr th {
 }
 
 /* Anchor Link */
-
 a {
   color: var(--color-link);
   text-decoration: underline;
@@ -295,38 +241,13 @@ a:focus {
   color: var(--color-link-dark);
 }
 
-/* p a {
-  color: var(--color-brand-black);
-  position: relative;
-  text-decoration: none;
-  font-weight: var(--fontWeight-bold);
-  transition: all 0.2s ease;
-}
-p a::before {
-  border-bottom: 0.5em solid var(--color-brand-very-light);
-  content: " ";
-  width: 100%;
-  position: absolute;
-  bottom: 0em;
-  left: 0;
-  display: block;
-  z-index: -1;
-}
-
-p a:hover::before,
-p a:focus::before {
-  text-decoration: none;
-  border-bottom: 0;
-} */
-
 /* Custom classes */
-
-b,
-.bold {
-  font-weight: var(--fontWeight-bold);
+/* Font Sizes */
+.fs-small {
+  font-size: var(--fontSize-s);
 }
-.underline {
-  text-decoration: underline;
+.fs-xsmall {
+  font-size: var(--fontSize-xs);
 }
 button,
 .button {
@@ -347,8 +268,8 @@ button:hover,
   background-color: var(--color-brand-dark);
   color: #fff;
 }
-.mobile-only {
-  @media screen and (min-width: 767px) {
+@media screen and (min-width: 767px) {
+  .mobile-only {
     display: none !important;
   }
 }
@@ -359,7 +280,7 @@ button:hover,
   padding-top: var(--spacing-0);
 }
 
-.global-wrapper[data-is-root-path="true"] .bio {
+.global-wrapper[data-is-root-path='true'] .bio {
   margin-bottom: var(--spacing-20);
 }
 
@@ -393,7 +314,6 @@ button:hover,
 }
 
 .header-link-home {
-  font-weight: var(--fontWeight-bold);
   font-family: var(--font-heading);
   text-decoration: none;
   font-size: var(--fontSize-2);
@@ -417,9 +337,8 @@ button:hover,
   flex-grow: 0;
 }
 
-.blog-post header h1 {
+/* .blog-post header h1 {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
-  font-weight: var(--fontWeight-semibold);
 }
 
 .blog-post header p {
@@ -433,9 +352,8 @@ button:hover,
 .blog-post h2 {
   padding-bottom: var(--spacing-2);
   font-family: var(--fontFamily-sans);
-  font-weight: var(--fontWeight-semibold);
   text-transform: capitalize;
-}
+} */
 
 .blog-post-nav ul {
   margin: var(--spacing-0);
@@ -443,15 +361,6 @@ button:hover,
 
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
-}
-.uppercase {
-  text-transform: uppercase;
-}
-.lowercase {
-  text-transform: lowercase;
-}
-.capitalize {
-  text-transform: capitalize;
 }
 
 /* Media queries */

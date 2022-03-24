@@ -13,9 +13,9 @@ function PopularPosts() {
   return (
     <section>
       <div className="row">
-        <h2 className="page__title popular-posts">Popular</h2>
+        <h2 className="page__title popular-posts col-8 h4">Popular</h2>
       </div>
-      <ul className="row">
+      <ul className="row p-0">
         {result.map((item, index) => {
           const title = item.node.title;
           const keyId = item.node.id;
@@ -38,7 +38,7 @@ function PopularPosts() {
                     <GatsbyImage image={featuredImgSrc} alt={featuredImgAlt} />
                   </Link>
                 </div>
-                <div>
+                <div className="d-flex justify-content-start fs-small">
                   <span className="post__date">{publishedDate}</span>
                   <span> / </span>
                   <div className="post__categories">
@@ -51,7 +51,7 @@ function PopularPosts() {
                 </div>
                 <div>
                   <Link to={item.node.uri}>
-                    <h3 className="post__title">{title}</h3>
+                    <h3 className="post__title h4">{title}</h3>
                   </Link>
                 </div>
               </li>

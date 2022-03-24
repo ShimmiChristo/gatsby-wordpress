@@ -10,13 +10,13 @@ function FeaturedPosts() {
 
   return (
     <section>
-      <div className="row">
-        <h2 className="page__title featured-posts col-11">Featured Posts</h2>
-        <div className="col-1">
+      <div className="row pt-3">
+        <h2 className="page__title featured-posts col-8 h4">Featured Posts</h2>
+        <div className="col-4 text-end">
           <Link to="/blog">view more</Link>
         </div>
       </div>
-      <ul className="row">
+      <ul className="row mb-3 p-0">
         {edges.map((item) => {
           const title = item.node.title;
           const keyId = item.node.id;
@@ -37,7 +37,7 @@ function FeaturedPosts() {
                   <GatsbyImage image={featuredImgSrc} alt={featuredImgAlt} />
                 </Link>
               </div>
-              <div>
+              <div className="d-flex justify-content-start">
                 <span className="post__date">{publishedDate}</span>
                 <span> / </span>
                 <div className="post__categories">

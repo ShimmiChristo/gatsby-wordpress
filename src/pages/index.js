@@ -24,7 +24,7 @@ const Homepage = ({ data, location }) => {
       <Slider />
       <LatestPosts />
       <FeaturedPosts />
-      <div className="row mb-3">
+      <div className="row mb-3 pt-3">
         <div className="col-md-10">
           <PopularPosts />
         </div>

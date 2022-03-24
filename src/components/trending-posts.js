@@ -31,9 +31,9 @@ function TrendingPosts() {
   return (
     <section>
       <div className="row">
-        <h2 className="page__title trending-posts">Trending</h2>
+        <h2 className="page__title trending-posts h4">Trending</h2>
       </div>
-      <ul className="row mb-3">
+      <ul className="row mb-3 p-0">
         {filteredTrendingArr.map((item, index) => {
           const title = item?.title;
           const keyId = item?.id;
