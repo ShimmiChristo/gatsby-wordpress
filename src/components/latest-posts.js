@@ -10,13 +10,13 @@ function LatestPosts() {
 
   return (
     <section>
-      <div className="row pt-3">
-        <h2 className="page__title latest-posts col-8 h4">Latest Posts</h2>
-        <div className="col-4 text-end">
+      <div className="row py-3">
+        <h2 className="page__title latest-posts col-8 h4 m-0">Latest Posts</h2>
+        <div className="col-4 d-flex text-end justify-content-end align-items-end h4 m-0">
           <Link to="/blog">view more</Link>
         </div>
       </div>
-      <ul className="row mb-3 p-0">
+      <ul className="row pb-4 p-0">
         {edges.map((item) => {
           const title = item.node.title;
           const keyId = item.node.id;
@@ -37,9 +37,9 @@ function LatestPosts() {
                   <GatsbyImage image={featuredImgSrc} alt={featuredImgAlt} />
                 </Link>
               </div>
-              <div className="d-flex justify-content-start">
+              <div className="d-flex justify-content-start pt-2">
                 <span className="post__date">{publishedDate} </span>
-                <span> / </span>
+                <span className="px-2"> / </span>
                 <div className="post__categories">
                   {categoriesArr.map((cat) => (
                     <Link key={cat.id} to={cat.link}>
@@ -48,7 +48,7 @@ function LatestPosts() {
                   ))}
                 </div>
               </div>
-              <div>
+              <div className="pt-1">
                 <Link to={item.node.uri}>
                   <h3 className="post__title">{title}</h3>
                 </Link>

@@ -16,7 +16,7 @@ SwiperCore.use([Pagination, Navigation]);
 
 const Slider = () => {
   return (
-    <div className='row mb-3'>
+    <div className='row pb-4'>
       <Swiper
         spaceBetween={50}
         slidesPerView={1}

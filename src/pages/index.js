@@ -32,6 +32,7 @@ const Homepage = ({ data, location }) => {
           <TrendingPosts />
         </div>
       </div>
+      <hr></hr>
       <MailChimpSimpleForm />
     </Layout>
   );

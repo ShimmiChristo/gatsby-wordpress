@@ -30,8 +30,8 @@ function TrendingPosts() {
 
   return (
     <section>
-      <div className="row">
-        <h2 className="page__title trending-posts h4">Trending</h2>
+      <div className="row py-3">
+        <h2 className="page__title trending-posts h4 m-0">Trending Posts</h2>
       </div>
       <ul className="row mb-3 p-0">
         {filteredTrendingArr.map((item, index) => {
@@ -41,7 +41,7 @@ function TrendingPosts() {
           if (index < 4) {
             return (
               <li key={keyId} className="post">
-                <div>
+                <div className="pt-1">
                   <Link to={item?.uri}>
                     <span className="post__title">{title}</span>
                   </Link>

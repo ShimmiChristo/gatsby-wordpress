@@ -29,7 +29,7 @@ const Layout = ({ isHomePage, children, addClasses }) => {
           <Header></Header>
         )}
 
-       <main className={`container mx-auto ${addClasses}`}>{children}</main>
+       <main className={`container-xl mx-auto ${addClasses}`}>{children}</main>
       <Footer></Footer>
 
     </div>

@@ -83,13 +83,12 @@
   --color-brand-med: #ff906e;
   --color-brand-light: #f9b19b;
   --color-brand-very-light: #fcd7cb;
+  
   --color-brand-black: #222222;
-  --color-brand-gray-1: #707070;
+  --color-brand-gray: #707070;
   --color-brand-gray-2: #bdbdbd;
-  --color-brand-gray-3: #cfcfcf;
-  --color-brand-gray-4: #cfcfcf;
-  --color-brand-gray-5: #eeeeee;
-  --color-brand-gray-6: #f2f2f2;
+  --color-brand-gray-light: #eeeeee;
+  /* --color-brand-gray-6: #f2f2f2; */
 }
 
 /* HTML elements */
@@ -230,13 +229,13 @@ table thead tr th {
 }
 
 /* Anchor Link */
-a {
+body a {
   color: var(--color-link);
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
 }
-a:hover,
-a:focus {
+body a:hover,
+body a:focus {
   text-decoration-color: var(--color-link-dark);
   color: var(--color-link-dark);
 }
@@ -361,6 +360,19 @@ button:hover,
 
 .gatsby-highlight {
   margin-bottom: var(--spacing-8);
+}
+
+.post__date,
+.post__categories {
+  color: var(--color-brand-gray);
+}
+.post__categories a {
+  border: 1px solid var(--color-brand-gray-light);
+  padding: 0 0.4rem;
+  border-radius: 1rem;
+  color: initial;
+  background-color: var(--color-brand-gray-light);
+  color: var(--color-brand-gray);
 }
 
 /* Media queries */

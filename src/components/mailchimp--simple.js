@@ -50,9 +50,11 @@ function MailChimpSimpleForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="row">
-        <div className="form-group mb-2 col-2">Newsletter</div>
-        <div className="form-group mb-2 col">
+      <div className="row py-5">
+        <div className="form-group mb-2 col-5">
+          <h2 className='h3'>Subscribe to the Newsletter</h2>
+        </div>
+        <div className="form-group mb-2 col-5">
           <label className="sr-only" htmlFor="email">
             Email
           </label>
@@ -76,7 +78,7 @@ function MailChimpSimpleForm() {
           />
           {errors.email && <p>{errors.email.message}</p>}
         </div>
-        <div className="form-group mb-2 col">
+        <div className="form-group mb-2 col-2">
           <input
             label="Submit"
             type="submit"
