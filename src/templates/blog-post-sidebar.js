@@ -27,7 +27,7 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
   return (
     <Layout addClasses={'row'}>
       <Seo title={post.title} description={post.excerpt} />
-      <div className="col-10">
+      <div className="col-md-9">
         <article
           className="blog-post"
           itemScope
@@ -36,20 +36,19 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
           <header>
             {/* if we have a featured image for this post let's display it */}
             {featuredImage?.data && (
-              <GatsbyImage
-                image={featuredImage.data}
-                alt={featuredImage.alt}
-                style={{ marginBottom: 50 }}
-              />
+              <GatsbyImage image={featuredImage.data} alt={featuredImage.alt} />
             )}
-            <h1 itemProp="headline">{parse(post.title)}</h1>
-            <p>{post.date}</p>
-            <div className="post__categories">
-              {categoriesArr.map((cat) => (
-                <Link key={cat.id} to={cat.link}>
-                  <span>{cat.name}</span>
-                </Link>
-              ))}
+            <h1 className='pt-2' itemProp="headline">{parse(post.title)}</h1>
+            <div className="d-flex justify-content-start fs-small">
+              <p>{post.date}</p>
+              <span className="px-2"> / </span>
+              <div className="post__categories">
+                {categoriesArr.map((cat) => (
+                  <Link key={cat.id} to={cat.link}>
+                    <span>{cat.name}</span>
+                  </Link>
+                ))}
+              </div>
             </div>
           </header>
 
@@ -65,7 +64,7 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
               authorDescription={authorDescription}
               authorAvatarUrl={authorAvatarUrl}
             />
-            <BlogPostCommentsFB uri={post.uri}/>
+            <BlogPostCommentsFB uri={post.uri} />
           </footer>
         </article>
 
@@ -97,7 +96,7 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
           </ul>
         </nav>
       </div>
-      <div className="col-2">
+      <div className="col-md-3">
         <aside>
           <SidebarLatestPosts />
           <SidebarGetCategories />

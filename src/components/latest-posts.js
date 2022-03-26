@@ -37,7 +37,7 @@ function LatestPosts() {
                   <GatsbyImage image={featuredImgSrc} alt={featuredImgAlt} />
                 </Link>
               </div>
-              <div className="d-flex justify-content-start pt-2">
+              <div className="d-flex justify-content-start pt-2 fs-small">
                 <span className="post__date">{publishedDate} </span>
                 <span className="px-2"> / </span>
                 <div className="post__categories">
