@@ -21,7 +21,9 @@ const TagPageTemplate = ({ data: { tag } }) => {
   return (
     <Layout>
       <Seo title={tag.name} description={tag.description || ''} />
-      <h1>{tag.name}</h1>
+      <h1 className="text-center text-capitalize display-1 py-3 mb-5 border-bottom col-md-8 mx-auto">
+        {tag.name}
+      </h1>
       {posts.map((post) => {
         const featuredImage = {
           data: post.featuredImage?.node?.localFile?.childImageSharp
@@ -38,7 +40,7 @@ const TagPageTemplate = ({ data: { tag } }) => {
               itemScope
               itemType="http://schema.org/Article"
             >
-              <header>
+              <header className="col-md-8 mx-auto">
                 {featuredImage.data && (
                   <GatsbyImage
                     image={featuredImage.data}
@@ -48,12 +50,15 @@ const TagPageTemplate = ({ data: { tag } }) => {
               </header>
 
               {!!post.excerpt && (
-                <section itemProp="articleBody">
-                  <div>
+                <section
+                  itemProp="articleBody"
+                  className="col-md-8 mx-auto mb-5"
+                >
+                  <div className="d-flex justify-content-start pt-2 fs-small">
                     <span className="post__date">{post.date}</span>
-                    <span> / </span>
+                    <span className="px-2"> / </span>
                     <span>{postAuthor}</span>
-                    <span> / </span>
+                    <span className="px-2"> / </span>
                     <div className="post__categories">
                       {postCategories.map((postTag) => (
                         <Link key={postTag.id} to={postTag.uri}>
@@ -62,9 +67,11 @@ const TagPageTemplate = ({ data: { tag } }) => {
                       ))}
                     </div>
                   </div>
-                  <Link to={post.uri}>
-                    <h2 itemProp="post__title">{parse(post.title)}</h2>
-                  </Link>
+                  <div className="pt-1">
+                    <Link to={post.uri}>
+                      <h2 itemProp="post__title">{parse(post.title)}</h2>
+                    </Link>
+                  </div>
                   {parse(post.excerpt)}
                 </section>
               )}
@@ -111,8 +118,9 @@ export const pageQuery = graphql`
                 childImageSharp {
                   gatsbyImageData(
                     quality: 100
-                    placeholder: TRACED_SVG
+                    placeholder: BLURRED
                     layout: FULL_WIDTH
+                    aspectRatio: 2.5
                   )
                 }
               }

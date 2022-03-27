@@ -25,7 +25,7 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
   const authorAvatarUrl = post.author.node.avatar.url;
 
   return (
-    <Layout addClasses={'row'}>
+    <Layout addClasses={'row my-5'}>
       <Seo title={post.title} description={post.excerpt} />
       <div className="col-md-9">
         <article
@@ -33,13 +33,13 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
           itemScope
           itemType="http://schema.org/Article"
         >
-          <header>
+          <header className="border-bottom mb-4">
             {/* if we have a featured image for this post let's display it */}
             {featuredImage?.data && (
-              <GatsbyImage image={featuredImage.data} alt={featuredImage.alt} />
+              <GatsbyImage image={featuredImage.data} alt={featuredImage.alt} className="mb-2" />
             )}
-            <h1 className='pt-2' itemProp="headline">{parse(post.title)}</h1>
-            <div className="d-flex justify-content-start fs-small">
+            <h1 itemProp="headline">{parse(post.title)}</h1>
+            <div className="d-flex flex-wrap justify-content-start fs-small">
               <p>{post.date}</p>
               <span className="px-2"> / </span>
               <div className="post__categories">
@@ -56,7 +56,6 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
             <section itemProp="articleBody">{parse(post.content)}</section>
           )}
 
-          <hr />
 
           <footer>
             <AuthorBio
@@ -145,8 +144,9 @@ export const pageQuery = graphql`
             childImageSharp {
               gatsbyImageData(
                 quality: 100
-                placeholder: TRACED_SVG
+                placeholder: BLURRED
                 layout: FULL_WIDTH
+                aspectRatio: 1.77
               )
             }
           }

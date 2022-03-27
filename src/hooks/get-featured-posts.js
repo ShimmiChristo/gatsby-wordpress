@@ -30,7 +30,7 @@ export const GetFeaturedPosts = () => {
                   sourceUrl
                   localFile {
                     childImageSharp {
-                      gatsbyImageData(width: 600)
+                      gatsbyImageData
                     }
                   }
                 }

@@ -83,7 +83,7 @@
   --color-brand-med: #ff906e;
   --color-brand-light: #f9b19b;
   --color-brand-very-light: #fcd7cb;
-  
+
   --color-brand-black: #222222;
   --color-brand-gray: #707070;
   --color-brand-gray-2: #bdbdbd;
@@ -248,6 +248,7 @@ body a:focus {
 .fs-xsmall {
   font-size: var(--fontSize-xs);
 }
+
 button,
 .button {
   display: block;
@@ -285,6 +286,19 @@ button:hover,
 
 .global-header {
   margin-bottom: var(--spacing-12);
+}
+
+.image-filler {
+  background-color: var(--color-brand-gray-light);
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio. */
+  padding-bottom: 75%; /* 4:3 ratio. */
+  position: relative;
+}
+.image-filler a {
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 
 .main-heading {
@@ -369,6 +383,7 @@ button:hover,
 .post__categories a {
   border: 1px solid var(--color-brand-gray-light);
   padding: 0 0.4rem;
+  margin: 0 0.1rem;
   border-radius: 1rem;
   color: initial;
   background-color: var(--color-brand-gray-light);

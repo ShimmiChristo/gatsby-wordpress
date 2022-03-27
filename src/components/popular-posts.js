@@ -13,7 +13,7 @@ function PopularPosts() {
   return (
     <section>
       <div className="row py-3">
-        <h2 className="page__title popular-posts col-8 h4 m-0">Popular Posts</h2>
+        <h2 className="page__title popular-posts col-8 h5 m-0">Popular Posts</h2>
       </div>
       <ul className="row p-0">
         {result.map((item, index) => {
@@ -32,13 +32,13 @@ function PopularPosts() {
 
           if (index < 3) {
             return (
-              <li key={keyId} className="post col-md-4">
-                <div>
+              <li key={keyId} className="post col-md-4 d-flex flex-column justify-content-start">
+                <div className='image-filler'>
                   <Link to={item.node.uri}>
                     <GatsbyImage image={featuredImgSrc} alt={featuredImgAlt} />
                   </Link>
                 </div>
-                <div className="d-flex justify-content-start fs-small pt-2">
+                <div className="d-flex flex-wrap justify-content-start fs-small pt-2">
                   <span className="post__date">{publishedDate}</span>
                   <span className="px-2"> / </span>
                   <div className="post__categories">

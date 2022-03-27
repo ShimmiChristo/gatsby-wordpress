@@ -55,7 +55,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-gatsby-cloud`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          placeholder: `blurred`,
+        }
+      }
+    },
     `gatsby-transformer-sharp`, // Needed for dynamic images,
     {
       resolve: `gatsby-source-filesystem`,

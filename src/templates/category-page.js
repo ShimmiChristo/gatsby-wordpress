@@ -21,7 +21,9 @@ const CategoryPageTemplate = ({ data: { category } }) => {
   return (
     <Layout>
       <Seo title={category.name} description={category.description || ''} />
-      <h1 className='text-center display-1 py-3 mb-5 border-bottom col-md-8 mx-auto'>{category.name}</h1>
+      <h1 className="text-center text-capitalize display-1 py-3 mb-5 border-bottom col-md-8 mx-auto">
+        {category.name}
+      </h1>
       {posts.map((post) => {
         const featuredImage = {
           data: post.featuredImage?.node?.localFile?.childImageSharp
@@ -38,7 +40,7 @@ const CategoryPageTemplate = ({ data: { category } }) => {
               itemScope
               itemType="http://schema.org/Article"
             >
-              <header className='col-md-8 mx-auto'>
+              <header className="col-md-8 mx-auto">
                 {featuredImage.data && (
                   <GatsbyImage
                     image={featuredImage.data}
@@ -48,8 +50,11 @@ const CategoryPageTemplate = ({ data: { category } }) => {
               </header>
 
               {!!post.excerpt && (
-                <section itemProp="articleBody" className='col-md-8 mx-auto mb-5'>
-                   <div className="d-flex justify-content-start pt-2 fs-small">
+                <section
+                  itemProp="articleBody"
+                  className="col-md-8 mx-auto mb-5"
+                >
+                  <div className="d-flex justify-content-start pt-2 fs-small">
                     <span className="post__date">{post.date}</span>
                     <span className="px-2"> / </span>
                     <span>{postAuthor}</span>
@@ -113,8 +118,9 @@ export const pageQuery = graphql`
                 childImageSharp {
                   gatsbyImageData(
                     quality: 100
-                    placeholder: TRACED_SVG
+                    placeholder: BLURRED
                     layout: FULL_WIDTH
+                    aspectRatio: 2.5
                   )
                 }
               }

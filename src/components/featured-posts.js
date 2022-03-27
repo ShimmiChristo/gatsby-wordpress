@@ -11,9 +11,9 @@ function FeaturedPosts() {
   return (
     <section>
       <div className="row py-3">
-        <h2 className="page__title featured-posts col-8 h4 m-0">Featured Posts</h2>
+        <h2 className="page__title featured-posts col-8 h5 m-0">Featured Posts</h2>
         <div className="col-4 d-flex text-end justify-content-end align-items-end h4 m-0">
-          <Link to="/blog">view more</Link>
+          <Link to="/category/featured">view more</Link>
         </div>
       </div>
       <ul className="row mb-3 p-0">
@@ -31,13 +31,13 @@ function FeaturedPosts() {
             ? item.node.categories.nodes
             : [];
           return (
-            <li key={keyId} className="post col-md-6">
-              <div>
+            <li key={keyId} className="post col-md-6 d-flex flex-column justify-content-start">
+              <div className='image-filler'>
                 <Link to={item.node.uri}>
-                  <GatsbyImage image={featuredImgSrc} alt={featuredImgAlt} />
+                  <GatsbyImage image={featuredImgSrc} alt={featuredImgAlt} aspectRatio={4/3} />
                 </Link>
               </div>
-              <div className="d-flex justify-content-start pt-2 fs-small">
+              <div className="d-flex flex-wrap justify-content-start pt-2 fs-small">
                 <span className="post__date">{publishedDate}</span>
                 <span className="px-2"> / </span>
                 <div className="post__categories">

@@ -11,9 +11,9 @@ function LatestPosts() {
   return (
     <section>
       <div className="row py-3">
-        <h2 className="page__title latest-posts col-8 h4 m-0">Latest Posts</h2>
+        <h2 className="page__title latest-posts col-8 h5 m-0">Latest Posts</h2>
         <div className="col-4 d-flex text-end justify-content-end align-items-end h4 m-0">
-          <Link to="/blog">view more</Link>
+          <Link to="/category/news">view more</Link>
         </div>
       </div>
       <ul className="row pb-4 p-0">
@@ -31,13 +31,13 @@ function LatestPosts() {
             ? item.node.categories.nodes
             : [];
           return (
-            <li key={keyId} className="post col-md-6 col-lg-3">
-              <div>
+            <li key={keyId} className="post col-md-6 col-lg-3 post d-flex flex-column justify-content-start">
+              <div className='image-filler'>
                 <Link to={item.node.uri}>
-                  <GatsbyImage image={featuredImgSrc} alt={featuredImgAlt} />
+                  <GatsbyImage image={featuredImgSrc} alt={featuredImgAlt} width={100} aspectRatio={4/3} />
                 </Link>
               </div>
-              <div className="d-flex justify-content-start pt-2 fs-small">
+              <div className="d-flex flex-wrap justify-content-start pt-2 fs-small">
                 <span className="post__date">{publishedDate} </span>
                 <span className="px-2"> / </span>
                 <div className="post__categories">
