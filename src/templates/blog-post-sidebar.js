@@ -95,7 +95,7 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
           </ul>
         </nav>
       </div>
-      <div className="col-md-3">
+      <div className="col-md-3 mt-4 mt-md-0">
         <aside>
           <SidebarLatestPosts />
           <SidebarGetCategories />

@@ -16,21 +16,28 @@ const ImgSvgContainer = styled.img`
 
 function BioV2({ authorName, authorDescription, authorAvatarUrl }) {
   const { nodes } = GetPostAuthors();
+  let userFound = false;
 
   return (
-    <div className="bio py-5 my-5 border-top border-bottom">
+    <div className="bio py-3 my-3 py-md-5 my-md-5 border-top border-bottom">
       {nodes.map((author) => {
+        // gets the authors in local authors.json file and compares to WP authors
         if (authorName === author.name) {
+          userFound = true;
           return (
             <div key={author.id}>
               <div className="d-flex mb-3">
                 {authorAvatarUrl ? (
-                  <img src={authorAvatarUrl} alt={`${author.name} avatar`} className="me-3" />
+                  <img
+                    src={authorAvatarUrl}
+                    alt={`${author.name} avatar`}
+                    className="me-3"
+                  />
                 ) : (
                   ''
                 )}
                 <div>
-                  <div className='mb-2'>{author.name}</div>
+                  <div className="mb-2">{author.name}</div>
                   <ul className="d-flex p-0 m-0">
                     {author.twitter?.handle ? (
                       <li className="pe-3">
@@ -108,6 +115,27 @@ function BioV2({ authorName, authorDescription, authorAvatarUrl }) {
                       ''
                     )}
                   </ul>
+                </div>
+              </div>
+              <div>{authorDescription}</div>
+            </div>
+          );
+        } else if (authorName !== author.name && userFound === false) {
+          userFound = true;
+          return (
+            <div key={authorName}>
+              <div className="d-flex mb-3">
+                {authorAvatarUrl ? (
+                  <img
+                    src={authorAvatarUrl}
+                    alt={`${authorName} avatar`}
+                    className="me-3"
+                  />
+                ) : (
+                  ''
+                )}
+                <div>
+                  <div className="mb-2">{authorName}</div>
                 </div>
               </div>
               <div>{authorDescription}</div>
