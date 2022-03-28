@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import AboutSite from '../components/about-site';
+// import AboutSite from '../components/about-site';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 // import AboutMe from "../components/about-me"

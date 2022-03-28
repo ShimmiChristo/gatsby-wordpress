@@ -1,11 +1,12 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import Header from "./header-v3"
-import Footer from "./footer"
+import Header from './header-v3';
+import Footer from './footer';
 
-
-const Layout = ({ isHomePage, children, addClasses }) => {
+const Layout = ({ location, children, addClasses }) => {
+  // const rootPath = `${__PATH_PREFIX__}/`
+  // const isRootPath = location.pathname === rootPath
   const {
     wp: {
       generalSettings: { title },
@@ -19,41 +20,35 @@ const Layout = ({ isHomePage, children, addClasses }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
-    <div className="container-fluid px-0" data-is-root-path={isHomePage}>
-        {isHomePage ? (
-         <Header></Header>
-        ) : (
-          <Header></Header>
-        )}
-
-       <main className={`container-xl mx-auto ${addClasses}`}>{children}</main>
+    <div className="container-fluid px-0">
+      <Header location={location}></Header>
+      <main className={`container-xl mx-auto ${addClasses}`}>{children}</main>
       <Footer></Footer>
-
     </div>
-  )
-}
+  );
+};
 
 // const Layout = ({ location, title, children }) => {
 //   const rootPath = `${__PATH_PREFIX__}/`
 //   const isRootPath = location.pathname === rootPath
-//   // let header
+// let header
 
-//   // if (isRootPath) {
-//   //   header = (
-//   //     <h1 className="main-heading">
-//   //       <Link to="/">{title}</Link>
-//   //     </h1>
-//   //   )
-//   // } else {
-//   //   header = (
-//   //     <Link className="header-link-home" to="/">
-//   //       {title}
-//   //     </Link>
-//   //   )
-//   // }
+// if (isRootPath) {
+//   header = (
+//     <h1 className="main-heading">
+//       <Link to="/">{title}</Link>
+//     </h1>
+//   )
+// } else {
+//   header = (
+//     <Link className="header-link-home" to="/">
+//       {title}
+//     </Link>
+//   )
+// }
 
 //   return (
 //     <div data-is-root-path={isRootPath}>
@@ -64,4 +59,4 @@ const Layout = ({ isHomePage, children, addClasses }) => {
 //   )
 // }
 
-export default Layout
+export default Layout;

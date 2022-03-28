@@ -9,7 +9,7 @@ const uuid = uuidv1();
 
 
 const FooterContainer = styled.footer`
-  background-color: var(--color-brand-gray-6);
+  background-color: var(--color-brand-gray-light);
   margin-top: 2rem;
 
   li {
@@ -63,7 +63,7 @@ function Footer() {
       <div className="container">
         <div className="row">
           <FooterColumn className="col-md-6 my-3">
-            <h4>Links</h4>
+            <h4>Pages</h4>
             {nav.map((navItem, i) => checkForSubNav(navItem, i))}
           </FooterColumn>
           <FooterColumn className="col-md-6 my-3">

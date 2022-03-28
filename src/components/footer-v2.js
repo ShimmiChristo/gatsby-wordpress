@@ -10,7 +10,7 @@ const uuid = uuidv1();
 
 
 const FooterContainer = styled.footer`
-  background-color: var(--color-brand-gray-6);
+  background-color: var(--color-brand-gray);
   padding: 1rem 0 1rem;
 `
 const FooterColumns = styled.div`

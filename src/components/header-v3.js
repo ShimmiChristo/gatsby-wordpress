@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { UseSiteMetadata } from '../hooks/use-site-metadata';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -31,9 +31,10 @@ const Container = styled.div`
   flex-direction: column;
   text-align: center;
   z-index: 2;
-  padding: 0 2.5rem;
+  padding: 0;
   align-items: center;
   justify-content: space-between;
+
   @media (max-width: 767px) {
     flex-direction: column;
   }
@@ -47,7 +48,7 @@ const Container = styled.div`
     li {
       margin: 0;
       list-style: none;
-      padding-right: 1rem;
+      padding-left: 1rem;
     }
   }
 `;
@@ -57,11 +58,11 @@ const ContainerUpper = styled.div`
   flex-direction: row;
   text-align: center;
   z-index: 2;
-  padding: 0 2.5rem;
   align-items: center;
   justify-content: space-between;
   z-index: 3;
   @media (max-width: 767px) {
+    padding: 0 2.5rem;
     flex-direction: column;
   }
 `;
@@ -71,15 +72,14 @@ const ContainerLower = styled.div`
   flex-direction: row;
   text-align: center;
   z-index: 2;
-  padding: 0 2.5rem;
   align-items: center;
   justify-content: space-between;
   @media (max-width: 767px) {
+    padding: 0 2.5rem;
     flex-direction: column;
   }
 `;
 const Nav = styled.nav`
-  margin: 0 2rem;
   ul {
     list-style: none;
     display: flex;
@@ -89,10 +89,11 @@ const Nav = styled.nav`
     padding: 0;
 
     li {
-      padding: 0 1rem;
+      padding: 0 1rem 0 0;
       margin: 0;
       width: 100%;
       position: relative;
+
       &.has-children {
         ul {
           position: absolute;
@@ -105,6 +106,11 @@ const Nav = styled.nav`
           transition: opacity 0.15s ease-in;
           flex-direction: column;
         }
+
+        li {
+          padding: 0 0 1rem;
+        }
+
         &:hover,
         &:focus {
           ul {
@@ -112,19 +118,19 @@ const Nav = styled.nav`
             opacity: 1;
           }
         }
-        li {
-        }
       }
+
       a {
         .fa-angle-right {
           display: none;
         }
         position: relative;
-        padding: 1rem 0;
+        text-transform: uppercase;
         display: block;
       }
     }
   }
+
   @media (max-width: 767px) {
     overflow: auto;
     margin: 0;
@@ -147,6 +153,7 @@ const Nav = styled.nav`
     &.active {
       transform: translateX(0);
     }
+
     ul {
       margin: 0;
       flex-direction: column;
@@ -157,6 +164,7 @@ const Nav = styled.nav`
         border-bottom: 1px solid;
         margin: 0;
         text-align: left;
+
         &.has-children {
           ul {
             padding: 0 0 0 0.5rem;
@@ -166,11 +174,13 @@ const Nav = styled.nav`
               &:last-child {
                 border-bottom: none;
               }
+
               a {
                 padding: 0.5rem 0;
               }
             }
           }
+
           a {
             .fa-angle-right {
               transition: transform 0.2s ease-in-out;
@@ -251,7 +261,7 @@ const Background = styled.div`
   }
 `;
 
-function HeaderV3() {
+function HeaderV3(location) {
   const { title, nav, logo, social, author } = UseSiteMetadata();
   const [menuActive, setMenuActive] = useState(false);
   const [subMenuActive, setSubMenuActive] = useState(false);
@@ -288,12 +298,18 @@ function HeaderV3() {
     }
     return;
   }
+
   function handleSubNavClick() {
     subMenuActive ? setSubMenuActive(false) : setSubMenuActive(true);
   }
 
+  // function focusCurrentLocation() {
+  //   const currentPath = location.pathname;
+  // }
+
+  console.log('location - ', location);
   return (
-    <HeaderContainer>
+    <HeaderContainer className="container py-3 mb-3">
       <Background className={`${menuActive ? 'active' : ''}`}></Background>
       <Container>
         <ContainerUpper>
@@ -302,43 +318,6 @@ function HeaderV3() {
           </NavBtn>
           <span className="h2">{logoImg}</span>
 
-          <Search indices={searchIndices} />
-        </ContainerUpper>
-        <ContainerLower>
-          <Nav id="navMenu" className={`${menuActive ? 'active' : ''}`}>
-            <CloseBtn id="navMenu--close" onClick={navClick}>
-              <FontAwesomeIcon icon={faTimes} size="2x" />
-            </CloseBtn>
-            <ul>
-              {nav.map((navMenu) =>
-                navMenu.link === '#' ? (
-                  <li
-                    key={navMenu.name}
-                    className={`nav-item has-children ${
-                      subMenuActive ? 'active' : ''
-                    }`}
-                    onClick={handleSubNavClick}
-                  >
-                    <Link to={navMenu.link}>
-                      {navMenu.name}
-                      <FontAwesomeIcon icon={faAngleRight} size="2x" />
-                    </Link>
-                    <ul className="sub-menu">
-                      {navMenu.subNavigation.map((subNavMenu) => (
-                        <li key={subNavMenu.name} onClick={navClick}>
-                          <Link to={subNavMenu.link}>{subNavMenu.name}</Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ) : (
-                  <li key={navMenu.name} onClick={navClick}>
-                    <Link to={navMenu.link}>{navMenu.name}</Link>
-                  </li>
-                )
-              )}
-            </ul>
-          </Nav>
           <ul>
             <li>
               <a href={`https://twitter.com/${social?.twitter || ``}`}>
@@ -401,18 +380,63 @@ function HeaderV3() {
               </a>
             </li>
           </ul>
+        </ContainerUpper>
+        <ContainerLower>
+          <Nav id="navMenu" className={`${menuActive ? 'active' : ''}`}>
+            <CloseBtn id="navMenu--close" onClick={navClick}>
+              <FontAwesomeIcon icon={faTimes} size="2x" />
+            </CloseBtn>
+            <ul>
+              {nav.map((navMenu) =>
+                navMenu.link === '#' ? (
+                  <li
+                    key={navMenu.name}
+                    className={`nav-item has-children ${
+                      subMenuActive ? 'active' : ''
+                    }`}
+                    onClick={handleSubNavClick}
+                  >
+                    <Link to={navMenu.link}>
+                      {navMenu.name}
+                      <FontAwesomeIcon icon={faAngleRight} size="2x" />
+                    </Link>
+                    <ul className="sub-menu">
+                      {navMenu.subNavigation.map((subNavMenu) => (
+                        <li key={subNavMenu.name} onClick={navClick}>
+                          <Link to={subNavMenu.link}>{subNavMenu.name}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ) : (
+                  <li
+                    key={navMenu.name}
+                    onClick={navClick}
+                    className={
+                      navMenu.name.indexOf(location.pathname) !== -1
+                        ? 'active-url'
+                        : 'non-active-url'
+                    }
+                  >
+                    <Link to={navMenu.link}>{navMenu.name}</Link>
+                  </li>
+                )
+              )}
+            </ul>
+          </Nav>
+          <Search indices={searchIndices} />
         </ContainerLower>
       </Container>
     </HeaderContainer>
   );
 }
 
-HeaderV3.propTypes = {
-  title: PropTypes.string,
-};
+// HeaderV3.propTypes = {
+//   title: PropTypes.string,
+// };
 
-HeaderV3.defaultProps = {
-  title: ``,
-};
+// HeaderV3.defaultProps = {
+//   title: ``,
+// };
 
 export default HeaderV3;
