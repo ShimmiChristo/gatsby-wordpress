@@ -6,7 +6,7 @@ export default connectSearchBox(
   ({ refine, currentRefinement, className, onFocus }) => (
     <form className={className}>
       <input
-        className="SearchInput"
+        className="form-control me-sm-2"
         type="text"
         placeholder="Search"
         aria-label="Search"
@@ -14,7 +14,8 @@ export default connectSearchBox(
         value={currentRefinement}
         onFocus={onFocus}
       />
-      <SearchIcon className="SearchIcon" />
+      {/* <SearchIcon className="SearchIcon" /> */}
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
     </form>
   )
 )

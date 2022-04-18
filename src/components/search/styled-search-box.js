@@ -19,7 +19,7 @@ const closed = css`
 
 export default styled(SearchBox)`
   display: flex;
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
   align-items: center;
   margin-bottom: 0;
 

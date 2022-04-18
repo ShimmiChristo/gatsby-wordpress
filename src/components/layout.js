@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import Header from './header-v3';
+import Header from './header--bootstrap';
 import Footer from './footer';
 
 const Layout = ({ location, children, addClasses }) => {
@@ -24,7 +24,7 @@ const Layout = ({ location, children, addClasses }) => {
 
   return (
     <div className="container-fluid px-0">
-      <Header location={location}></Header>
+      <Header location={location} className={`container-xl mx-auto`}></Header>
       <main className={`container-xl mx-auto ${addClasses}`}>{children}</main>
       <Footer></Footer>
     </div>

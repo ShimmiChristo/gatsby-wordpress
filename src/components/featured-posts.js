@@ -11,7 +11,7 @@ function FeaturedPosts() {
   return (
     <section>
       <div className="row py-3">
-        <h2 className="page__title featured-posts col-8 h5 m-0">Featured Posts</h2>
+        <h2 className="page__title featured-posts col-8 h4 m-0">Featured Posts</h2>
         <div className="col-4 d-flex text-end justify-content-end align-items-end h4 m-0">
           <Link to="/category/featured">view more</Link>
         </div>
@@ -50,7 +50,7 @@ function FeaturedPosts() {
               </div>
               <div className="pt-1">
                 <Link to={item.node.uri}>
-                  <h3 className="post__title">{title}</h3>
+                  <h3 className="post__title h5">{title}</h3>
                 </Link>
               </div>
             </li>
