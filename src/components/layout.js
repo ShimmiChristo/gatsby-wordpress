@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header--bootstrap';
-import Footer from './footer';
+import Footer from './footer--bootstrap';
 
 const Layout = ({ location, children, addClasses }) => {
   // const rootPath = `${__PATH_PREFIX__}/`
