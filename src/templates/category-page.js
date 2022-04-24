@@ -21,7 +21,7 @@ const CategoryPageTemplate = ({ data: { category } }) => {
   return (
     <Layout>
       <Seo title={category.name} description={category.description || ''} />
-      <h1 className="text-center text-capitalize display-1 py-3 mb-5 border-bottom col-md-8 mx-auto">
+      <h1 className="text-center text-capitalize display-1 py-2 mb-2 border-bottom col-md-8 mx-auto">
         {category.name}
       </h1>
       {posts.map((post) => {
@@ -54,7 +54,7 @@ const CategoryPageTemplate = ({ data: { category } }) => {
                   itemProp="articleBody"
                   className="col-md-8 mx-auto mb-5"
                 >
-                  <div className="d-flex justify-content-start pt-2 fs-small">
+                  <div className="d-flex justify-content-start pt-2 fs-small flex-wrap">
                     <span className="post__date">{post.date}</span>
                     <span className="px-2"> / </span>
                     <span>{postAuthor}</span>

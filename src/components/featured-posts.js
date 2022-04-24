@@ -11,8 +11,8 @@ function FeaturedPosts() {
   return (
     <section>
       <div className="row py-3">
-        <h2 className="page__title featured-posts col-8 h4 m-0">Featured Posts</h2>
-        <div className="col-4 d-flex text-end justify-content-end align-items-end h4 m-0">
+        <h2 className="page__title featured-posts col-6 h4 m-0">Featured Posts</h2>
+        <div className="col-6 d-flex text-end justify-content-end align-items-end h4 m-0">
           <Link to="/category/featured">view more</Link>
         </div>
       </div>

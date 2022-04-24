@@ -41,9 +41,9 @@ function Footer() {
   const { edges } = GetCategoriesList();
 
   return (
-    <FooterContainer className="">
-      <div className="container">
-        <div className="row">
+    <FooterContainer>
+      <div className="container-fluid container-xl">
+        <div className="row px-4">
           <div className="col-6 col-md-4 my-3 ">
             <h4>Pages</h4>
             {nav.map((navItem, i) => checkForSubNav(navItem, i))}

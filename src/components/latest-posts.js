@@ -11,8 +11,8 @@ function LatestPosts() {
   return (
     <section>
       <div className="row py-3">
-        <h2 className="page__title latest-posts col-8 h4 m-0">Latest Posts</h2>
-        <div className="col-4 d-flex text-end justify-content-end align-items-end h4 m-0">
+        <h2 className="page__title latest-posts col-6 h4 m-0">Latest Posts</h2>
+        <div className="col-6 d-flex text-end justify-content-end align-items-end h4 m-0">
           <Link to="/category/news">view more</Link>
         </div>
       </div>

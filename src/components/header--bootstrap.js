@@ -16,14 +16,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 import Img from 'gatsby-image';
 import styled from 'styled-components';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Search from './search';
-
-// import {
-//   faBars,
-//   faTimes,
-//   faAngleRight,
-// } from '@fortawesome/free-solid-svg-icons';
 
 const searchIndices = [{ name: `Pages`, title: `Pages` }];
 
@@ -35,6 +28,20 @@ const githubIcon = '../../content/assets/github-logo.svg';
 
 const HeaderContainer = styled.header`
   border-bottom: 1px solid #ebebeb;
+
+  .navbar-toggler {
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar-toggler-icon {
+    height: 20px;
+    width: 20px;
+  }
+
+
 `;
 const CustomContainer = styled.div`
   width: 100%;
@@ -63,29 +70,6 @@ const CustomContainer = styled.div`
     }
   }
 `;
-// const ContainerUpper = styled.div`
-//   width: 100%;
-//   display: flex;
-//   flex-direction: row;
-//   text-align: center;
-//   z-index: 2;
-//   align-items: center;
-//   justify-content: space-between;
-//   z-index: 3;
-//   @media (max-width: 767px) {
-//     padding: 0 2.5rem;
-//     flex-direction: column;
-//   }
-// `;
-// const ContainerLower = styled.div`
-//   width: 100%;
-//   display: flex;
-//   flex-direction: row;
-//   text-align: center;
-//   z-index: 2;
-//   align-items: center;
-//   justify-content: space-between;
-// `;
 
 const Background = styled.div`
   display: none;
@@ -111,7 +95,7 @@ const Background = styled.div`
   }
 `;
 
-function HeaderV3(location) {
+function HeaderBootstrap(location) {
   const { title, nav, logo, social, author } = UseSiteMetadata();
   const [menuActive, setMenuActive] = useState(false);
   const [subMenuActive, setSubMenuActive] = useState(false);
@@ -124,32 +108,15 @@ function HeaderV3(location) {
     logoImg = <div>{title}</div>;
   }
 
-  // function navClick(e) {
-  //   e.preventDefault();
-  //   const bodyTag = document.body.classList;
-  //   if (menuActive === false && window.innerWidth < 767) {
-  //     setMenuActive(true);
-  //     bodyTag.add('nav-open');
-  //   } else {
-  //     setMenuActive(false);
-  //     bodyTag.remove('nav-open');
-  //   }
-  //   return;
-  // }
-
-  // function handleSubNavClick() {
-  //   subMenuActive ? setSubMenuActive(false) : setSubMenuActive(true);
-  // }
-
   return (
-    <HeaderContainer className="container-xl py-lg-3 pt-2 mb-3">
+    <HeaderContainer className="container-xl py-lg-3 py-2 mb-3">
       <Background className={`${menuActive ? 'active' : ''}`}></Background>
       <CustomContainer>
         <div className="container-fluid d-flex flex-lg-row flex-column justify-content-between align-items-center">
           <Link to="/">
             <span className="h2">{logoImg}</span>
           </Link>
-          <ul className="d-flex">
+          <ul className="d-none d-lg-flex">
             <li>
               <a href={`https://twitter.com/${social?.twitter || ``}`}>
                 <StaticImage
@@ -248,6 +215,70 @@ function HeaderV3(location) {
               </div>
               <Search indices={searchIndices} />
             </Nav>
+            <ul className="d-lg-none d-flex">
+              <li>
+                <a href={`https://twitter.com/${social?.twitter || ``}`}>
+                  <StaticImage
+                    src={twitterIcon}
+                    alt="twitter icon"
+                    placeholder="blurred"
+                    layout="fixed"
+                    width={20}
+                    height={20}
+                  />
+                </a>
+              </li>
+              <li>
+                <a href={`https://instagram.com/${social?.instagram || ``}`}>
+                  <StaticImage
+                    src={instagramIcon}
+                    alt="instagram icon"
+                    placeholder="blurred"
+                    layout="fixed"
+                    width={20}
+                    height={20}
+                  />
+                </a>
+              </li>
+              <li>
+                <a href={`https://facebook.com/${social?.facebook || ``}`}>
+                  <StaticImage
+                    src={facebookIcon}
+                    alt="facebook icon"
+                    placeholder="blurred"
+                    layout="fixed"
+                    width={10}
+                    height={20}
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`https://www.linkedin.com/in/${social?.linkedin || ``}`}
+                >
+                  <StaticImage
+                    src={linkedinIcon}
+                    alt="linkedin icon"
+                    placeholder="blurred"
+                    layout="fixed"
+                    width={20}
+                    height={20}
+                  />
+                </a>
+              </li>
+              <li>
+                <a href={`https://www.github.com/in/${social?.github || ``}`}>
+                  <StaticImage
+                    src={githubIcon}
+                    alt="github icon"
+                    placeholder="blurred"
+                    layout="fixed"
+                    width={20}
+                    height={20}
+                  />
+                </a>
+              </li>
+            </ul>
 
             <Navbar.Offcanvas
               id="offcanvasNavbar"
@@ -256,7 +287,9 @@ function HeaderV3(location) {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id="offcanvasNavbarLabel">
-                  Offcanvas
+                  <Link to="/">
+                    <span className="h2">{logoImg}</span>
+                  </Link>
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
@@ -298,4 +331,4 @@ function HeaderV3(location) {
   );
 }
 
-export default HeaderV3;
+export default HeaderBootstrap;

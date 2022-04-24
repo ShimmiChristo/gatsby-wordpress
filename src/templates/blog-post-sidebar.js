@@ -33,14 +33,14 @@ const BlogPostSidebarTemplate = ({ data: { previous, next, post } }) => {
           itemScope
           itemType="http://schema.org/Article"
         >
-          <header className="border-bottom mb-4">
+          <header className="border-bottom mb-4 pb-2">
             {/* if we have a featured image for this post let's display it */}
             {featuredImage?.data && (
               <GatsbyImage image={featuredImage.data} alt={featuredImage.alt} className="mb-2" />
             )}
             <h1 itemProp="headline">{parse(post.title)}</h1>
             <div className="d-flex flex-wrap justify-content-start fs-small">
-              <p>{post.date}</p>
+              <span>{post.date}</span>
               <span className="px-2"> / </span>
               <div className="post__categories">
                 {categoriesArr.map((cat) => (

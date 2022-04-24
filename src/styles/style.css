@@ -144,9 +144,8 @@ pre[class*='language-markdown']::selection,
 code[class*='language-markdown'] ::selection {
   /* background: #f9b19b; */
 }
-/* Heading */
 
-/* 
+/* Heading */
 h1,
 .h1,
 h2,
@@ -159,9 +158,8 @@ h5,
 .h5,
 h6,
 .h6 {
-  color: var(--color-heading);
+  position: relative;
 }
-*/
 
 h1 > a {
   color: inherit;
@@ -175,6 +173,35 @@ h5 > a,
 h6 > a {
   text-decoration: none;
   color: inherit;
+}
+
+a > .post__title,
+a > h2,
+a > h3,
+a > h4,
+a > h5,
+a > h6 {
+  display: inline-block;
+  color: var(--color-brand-black);
+}
+
+a > .post__title::before,
+a > h2::before,
+a > h3::before {
+  width: 0;
+  height: 1px;
+  transition: all ease-in-out 0.2s;
+  background: #000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+}
+
+a > .post__title:hover::before,
+a > h2:hover::before,
+a > h3:hover::before {
+  width: 100%;
 }
 
 ul,
@@ -388,6 +415,10 @@ button:hover,
   color: initial;
   background-color: var(--color-brand-gray-light);
   color: var(--color-brand-gray);
+}
+.post__title {
+  display: inline-block;
+  position: relative;
 }
 
 /* Media queries */
